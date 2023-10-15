@@ -16,3 +16,6 @@ export type Credential = {
   email: string;
   password: string;
 };
+export type LoginUser = {
+  id: number;
+};
