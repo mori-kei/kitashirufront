@@ -17,13 +17,13 @@ interface AuthContextType {
   user: LoginUser | null;
   setUser: React.Dispatch<React.SetStateAction<LoginUser | null>>;
   login: (email: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider: FC<Props> = ({ children }) => {
   const [user, setUser] = useState<LoginUser | null>(null);
-  
 
   const login = async (email: string, password: string) => {
     try {
@@ -39,27 +39,35 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const checkIsLogin = async() => {
+  const checkIsLogin = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/me`,
-        { withCredentials: true }
-      );
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/me`, {
+        withCredentials: true,
+      });
       // データをuserにセットする
       setUser(res.data);
     } catch (error: any) {
       console.log(error.response.data);
-      setUser(null)
+      setUser(null);
     }
-  }
- 
+  };
 
   useEffect(() => {
-    checkIsLogin()
-  }, [])
-  
+    checkIsLogin();
+  }, []);
+  const logout = async () => {
+    try {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/logout`, {
+        withCredentials: true,
+      });
+      // データをuserにセットする
+      setUser(null);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
+  };
   return (
-    <AuthContext.Provider value={{ user, setUser, login }}>
+    <AuthContext.Provider value={{ user, setUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
