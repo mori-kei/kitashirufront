@@ -18,4 +18,5 @@ export type Credential = {
 };
 export type LoginUser = {
   id: number;
+  email:string
 };
