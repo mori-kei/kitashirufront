@@ -8,6 +8,7 @@ import axios from "axios";
 import { CsrfToken } from "./types";
 import LoginRedirect from "./components/LoginRedirect";
 import ProtectedRedirect from "./components/ProtectedRedirect";
+import SignUp from "./pages/Signup";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -28,6 +29,14 @@ function App() {
           element={
             <LoginRedirect>
               <Login />
+            </LoginRedirect>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <LoginRedirect>
+              <SignUp />
             </LoginRedirect>
           }
         />

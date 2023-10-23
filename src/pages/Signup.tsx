@@ -13,13 +13,13 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuthContext();
+  const { signup } = useAuthContext();
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    login(email, password);
+    signup(email, password);
   };
   return (
     <Flex
@@ -30,7 +30,7 @@ const Login = () => {
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>ログインして始めましょう</Heading>
+          <Heading fontSize={"4xl"}>登録して始めましょう</Heading>
         </Stack>
         <Box
           rounded={"lg"}
@@ -72,7 +72,7 @@ const Login = () => {
                 }}
                 onClick={handleSubmit}
               >
-                LogIn
+                SignUp
               </Button>
             </Stack>
           </Stack>
@@ -82,4 +82,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
