@@ -1,19 +1,18 @@
-import React, { ReactNode,FC } from "react";
+import React, { ReactNode, FC } from "react";
 import { useAuthContext } from "../context/authContext";
 import { Navigate } from "react-router-dom";
 
 interface Props {
-  children:ReactNode
+  children: ReactNode;
 }
 
-const LoginRedirect:FC<Props> = ({children}) => {
+const LoginRedirect: FC<Props> = ({ children }) => {
   const { user } = useAuthContext();
-  if(user) {
-    return <Navigate to={'/'} />
-  }else{
-    return <>{children}</>
+  if (user) {
+    return <Navigate to={"/"} />;
+  } else {
+    return <>{children}</>;
   }
-  
 };
 
 export default LoginRedirect;
