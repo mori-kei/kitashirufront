@@ -4,11 +4,11 @@ import {
   createContext,
   useContext,
   useEffect,
-  useLayoutEffect,
   useState,
 } from "react";
 import axios from "axios";
 import { LoginUser } from "../types";
+
 interface Props {
   children: ReactNode;
 }
@@ -18,6 +18,7 @@ interface AuthContextType {
   setUser: React.Dispatch<React.SetStateAction<LoginUser | null>>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  signup: (email: string, password: string) => void;
 }
 
 const AuthContext = createContext({} as AuthContextType);
@@ -38,7 +39,16 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       console.log(error.response.data);
     }
   };
-
+  const signup = (email: string, password: string) => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/signup`, { email, password }).then(response => {
+        login(email,password)
+      }
+      )
+      .catch((error) => {
+        console.error("Error", error);
+      });
+  };
   const checkIsLogin = async () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/me`, {
@@ -67,7 +77,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     }
   };
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, login, logout,signup }}>
       {children}
     </AuthContext.Provider>
   );
