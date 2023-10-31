@@ -1,13 +1,4 @@
-import {
-  Flex,
-  Card,
-  CardHeader,
-  Heading,
-  CardBody,
-  Stack,
-  StackDivider,
-  Box,
-} from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
 
@@ -196,41 +187,39 @@ const Culturetest = () => {
           label3=" 目標の達成や成功に向かって頑張ることによって皆が一致団結している会社がいいと思う。対外的な評価を高め、自社へのプライドを大切にする職場が望ましい。"
           label4=" ルールを重視し、進むべき方向性を皆が共有することで一致団結している会社がいいと思う。仕事を円滑に、効率よく進めようとするような職場が望ましい。"
         />
-<QuestionCard
-  questionText="5.戦略的に重視するもの"
-  borderColor={q05BorderColor}
-  setFam={setq05Fam}
-  setInno={setq05Inno}
-  setMar={setq05Mar}
-  setBure={setq05Bure}
-  fam={q05Fam}
-  inno={q05Inno}
-  mar={q05Mar}
-  bure={q05Bure}
-  label1=" 人材育成や教育、従業員の能力向上に重きを置く会社が望ましい。また、信頼関係やオープンなコミュニケーション、組織レベルでの取り組みに対する積極的な参加を重視する職場がいいと思う。"
-  label2=" 新しいビジネスチャンスを開拓したり、次に向けたチャレンジ、何か新しいものを生み出すことに重きを置く会社が望ましい。また、新しいことへの挑戦や、そのような機会を探すことを重視する職場がいいと思う。"
-  label3=" ライバルとの競争に勝ち抜き、目標を達成することに重きを置く会社が望ましい。また、高い目標を達成し、自社がその分野のリーダーになることを重視する職場がいいと思う。"
-  label4=" 永続的にビジネスが続くことや商売が安定していることに重きを置く会社が望ましい。また、効率的に仕事を行うこと、組織がきちんと統制されていること、円滑に業務が進むことを重要視する職場がいいと思う。"
-/>
-
-<QuestionCard
-  questionText="6.成功の基準"
-  borderColor={q06BorderColor}
-  setFam={setq06Fam}
-  setInno={setq06Inno}
-  setMar={setq06Mar}
-  setBure={setq06Bure}
-  fam={q06Fam}
-  inno={q06Inno}
-  mar={q06Mar}
-  bure={q06Bure}
-  label1=" 人材育成や教育がうまくいっていること、チームワークが成立していること、従業員が組織に尽くしてくれていることこそが、とても重要な成功だと考える会社が望ましい。"
-  label2=" 自社が独創的または最新の製品を持っていることこそが、とても重要な成功だと考える会社が望ましい。"
-  label3="  顧客に評価されたり、ライバル企業に勝ち抜くことこそが、とても重要な成功だと考える会社が望ましい。"
-  label4="  効率的に仕事が回っていること、安定した品質を持つ商品や安くてよいものを提供できていることこそが、とても重要な成功だと考える会社が望ましい。"
-/>;
-
-     
+        <QuestionCard
+          questionText="5.戦略的に重視するもの"
+          borderColor={q05BorderColor}
+          setFam={setq05Fam}
+          setInno={setq05Inno}
+          setMar={setq05Mar}
+          setBure={setq05Bure}
+          fam={q05Fam}
+          inno={q05Inno}
+          mar={q05Mar}
+          bure={q05Bure}
+          label1=" 人材育成や教育、従業員の能力向上に重きを置く会社が望ましい。また、信頼関係やオープンなコミュニケーション、組織レベルでの取り組みに対する積極的な参加を重視する職場がいいと思う。"
+          label2=" 新しいビジネスチャンスを開拓したり、次に向けたチャレンジ、何か新しいものを生み出すことに重きを置く会社が望ましい。また、新しいことへの挑戦や、そのような機会を探すことを重視する職場がいいと思う。"
+          label3=" ライバルとの競争に勝ち抜き、目標を達成することに重きを置く会社が望ましい。また、高い目標を達成し、自社がその分野のリーダーになることを重視する職場がいいと思う。"
+          label4=" 永続的にビジネスが続くことや商売が安定していることに重きを置く会社が望ましい。また、効率的に仕事を行うこと、組織がきちんと統制されていること、円滑に業務が進むことを重要視する職場がいいと思う。"
+        />
+        <QuestionCard
+          questionText="6.成功の基準"
+          borderColor={q06BorderColor}
+          setFam={setq06Fam}
+          setInno={setq06Inno}
+          setMar={setq06Mar}
+          setBure={setq06Bure}
+          fam={q06Fam}
+          inno={q06Inno}
+          mar={q06Mar}
+          bure={q06Bure}
+          label1=" 人材育成や教育がうまくいっていること、チームワークが成立していること、従業員が組織に尽くしてくれていることこそが、とても重要な成功だと考える会社が望ましい。"
+          label2=" 自社が独創的または最新の製品を持っていることこそが、とても重要な成功だと考える会社が望ましい。"
+          label3="  顧客に評価されたり、ライバル企業に勝ち抜くことこそが、とても重要な成功だと考える会社が望ましい。"
+          label4="  効率的に仕事が回っていること、安定した品質を持つ商品や安くてよいものを提供できていることこそが、とても重要な成功だと考える会社が望ましい。"
+        />
+        ;
       </Box>
     </Flex>
   );
