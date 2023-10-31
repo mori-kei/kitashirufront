@@ -9,7 +9,7 @@ import { CsrfToken } from "./types";
 import LoginRedirect from "./components/LoginRedirect";
 import ProtectedRedirect from "./components/ProtectedRedirect";
 import SignUp from "./pages/Signup";
-import { Culturetest } from "./pages/Culturetest";
+import Culturetest from "./components/templates/Culturetest";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -49,10 +49,10 @@ function App() {
             </ProtectedRedirect>
           }
         />
-        <Route 
+        <Route
           path="/test"
           element={
-            <ProtectedRedirect >
+            <ProtectedRedirect>
               <Culturetest />
             </ProtectedRedirect>
           }

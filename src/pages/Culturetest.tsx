@@ -13,6 +13,7 @@ import {
   StackDivider,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { MediumInput } from "../components/Molecules/Input/MediumInput";
 
 export const Culturetest = () => {
   // Q1
@@ -130,6 +131,7 @@ export const Culturetest = () => {
       setq06BorderColor("red");
     }
   }, [q06Fam, q06Inno, q06Mar, q06Bure]);
+
   return (
     <Flex justifyContent="center">
       <Box width="80%">
@@ -145,6 +147,13 @@ export const Culturetest = () => {
           <CardBody>
             <Stack divider={<StackDivider />} spacing="4">
               <Box>
+                <MediumInput
+                  label=" 指示系統によるしっかりとした上下関係重視というよりは、上司や先輩、または（将来）部下や後輩などともゆるやかで、フレンドリーな関係性が構築されている職場がいい。同僚や上司・部下は家族の延長のような存在であってほしいし、価値観や考えはお互いしっかり共有しておきたいと思う。"
+                  handleChange={(e) => {
+                    setQ01Fam(e.target.value);
+                  }}
+                  value={q01Fam}
+                />
                 <FormControl>
                   <FormLabel>
                     指示系統によるしっかりとした上下関係重視というよりは、上司や先輩、または（将来）部下や後輩などともゆるやかで、フレンドリーな関係性が構築されている職場がいい。同僚や上司・部下は家族の延長のような存在であってほしいし、価値観や考えはお互いしっかり共有しておきたいと思う。
