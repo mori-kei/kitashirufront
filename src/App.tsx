@@ -10,6 +10,7 @@ import LoginRedirect from "./components/LoginRedirect";
 import ProtectedRedirect from "./components/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
+import { Header } from "./components/organisms/Header/Header";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -25,6 +26,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/header" element={<Header/>} />
         <Route
           path="/login"
           element={

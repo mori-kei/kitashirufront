@@ -1,10 +1,12 @@
 import React from "react";
 import { useAuthContext } from "../context/authContext";
 import { Link } from "react-router-dom";
+import { Header } from "../components/organisms/Header/Header";
 const Home = () => {
   const { user ,logout} = useAuthContext();
   return (
     <div>
+      <Header />
       <h2>Welcome home {user && user.id }</h2>
       <div className="">
         <Link to={"/login"}>login</Link>
