@@ -11,6 +11,8 @@ import ProtectedRedirect from "./components/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
 import { Header } from "./components/organisms/Header/Header";
+
+import { NomalModal } from "./components/organisms/Modal/NomalModal";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -26,7 +28,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/header" element={<Header/>} />
+        <Route path="/header" element={<Header />} />
         <Route
           path="/login"
           element={
@@ -57,6 +59,20 @@ function App() {
             <ProtectedRedirect>
               <Culturetest />
             </ProtectedRedirect>
+          }
+        />
+        <Route
+          path="/modal"
+          element={
+            <NomalModal
+              title="this is modal"
+              openText="open"
+              closeText="close"
+              secondlyActionText="action"
+              size="full"
+              children={<> これはチルドレンです</>}
+              onClick={() => {}}
+            />
           }
         />
       </Routes>

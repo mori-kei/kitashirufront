@@ -13,6 +13,10 @@ const Home = () => {
         <div onClick={logout}>ログアウト</div>
         <Link to={"/protected"}>protected</Link>
         <Link to={"/test"}>test</Link>
+        <div className="">
+        <Link to={"/modal"}>modal</Link>
+        </div>
+        
       </div>
     </div>
   );
