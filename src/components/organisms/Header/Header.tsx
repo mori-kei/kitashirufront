@@ -14,6 +14,7 @@ export const Header: React.FC = () => {
       padding="1rem"
       color="white"
       boxShadow="md"
+    
     >
       <Flex align={"center"}>
         <Image src={logo} w={50} />
