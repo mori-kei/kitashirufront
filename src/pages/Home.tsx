@@ -19,6 +19,9 @@ const Home = () => {
         <div className="">
         <Link to={"/footer"}>Footer</Link>
         </div>
+        <div className="">
+        <Link to={"/showmodal"}>開いているmodal</Link>
+        </div>
       </div>
     </div>
   );

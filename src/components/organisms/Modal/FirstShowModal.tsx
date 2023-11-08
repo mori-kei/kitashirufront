@@ -7,9 +7,10 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
+  
   Button,
 } from "@chakra-ui/react";
+import { useDefaultShow } from "../../../hooks/useDefaultShow";
 
 type Props = {
   title: string;
@@ -19,9 +20,9 @@ type Props = {
   onClick?: () => void;
   children: ReactNode;
   size: string;
-  buttonWidth:string
+  buttonWidth: string;
 };
-export const NomalModal = ({
+export const FirstShowModal = ({
   title,
   openText,
   secondlyActionText,
@@ -29,12 +30,14 @@ export const NomalModal = ({
   onClick,
   children,
   size,
-  buttonWidth
+  buttonWidth,
 }: Props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDefaultShow();
   return (
     <>
-      <Button  width={buttonWidth} onClick={onOpen}>{openText}</Button>
+      <Button width={buttonWidth} onClick={onOpen}>
+        {openText}
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size={size}>
         <ModalOverlay />

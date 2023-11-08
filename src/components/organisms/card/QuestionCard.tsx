@@ -11,6 +11,7 @@ import {
 import { MediumInput } from "../../Molecules/Input/MediumInput";
 
 type QuestionCardProps = {
+  marginTop?: string;
   questionText: string;
   borderColor: string;
   setFam: (value: string) => void;
@@ -28,6 +29,7 @@ type QuestionCardProps = {
 };
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
+  marginTop,
   questionText,
   borderColor,
   setFam,
@@ -43,12 +45,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   label3,
   label4,
 }) => {
+  const defaultMarginTop = "20px";
   return (
     <Card
       borderColor={borderColor}
       borderStyle="solid"
       borderWidth="2px"
-      mt={20}
+      mt={marginTop || defaultMarginTop}
     >
       <CardHeader>
         <Heading size="md">{questionText}</Heading>
