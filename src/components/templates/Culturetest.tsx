@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import QuestionCard from "../organisms/card/QuestionCard";
 import { Header } from "../organisms/Header/Header";
+import { Footer } from "../organisms/Footer/Footer";
 
 const Culturetest = () => {
   // Q1
@@ -224,7 +225,7 @@ const Culturetest = () => {
           />
         </Box>
       </Flex>
-      
+      <Footer />
     </>
   );
 };

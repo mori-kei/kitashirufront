@@ -13,6 +13,7 @@ import Culturetest from "./components/templates/Culturetest";
 import { Header } from "./components/organisms/Header/Header";
 
 import { NomalModal } from "./components/organisms/Modal/NomalModal";
+import { Footer } from "./components/organisms/Footer/Footer";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -61,6 +62,7 @@ function App() {
             </ProtectedRedirect>
           }
         />
+        <Route path="/footer" element={<Footer />} />
         <Route
           path="/modal"
           element={

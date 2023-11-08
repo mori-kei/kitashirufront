@@ -16,7 +16,9 @@ const Home = () => {
         <div className="">
         <Link to={"/modal"}>modal</Link>
         </div>
-        
+        <div className="">
+        <Link to={"/footer"}>Footer</Link>
+        </div>
       </div>
     </div>
   );
