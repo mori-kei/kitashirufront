@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -15,10 +15,11 @@ type Props = {
   title: string;
   openText: string;
   closeText: string;
-  secondlyActionText: string;
+  secondlyActionText?: string;
   onClick?: () => void;
   children: ReactNode;
   size: string;
+  buttonWidth:string
 };
 export const NomalModal = ({
   title,
@@ -28,11 +29,12 @@ export const NomalModal = ({
   onClick,
   children,
   size,
+  buttonWidth
 }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>{openText}</Button>
+      <Button  width={buttonWidth} onClick={onOpen}>{openText}</Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size={size}>
         <ModalOverlay />

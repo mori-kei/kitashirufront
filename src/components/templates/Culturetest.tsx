@@ -6,6 +6,9 @@ import QuestionCard from "../organisms/card/QuestionCard";
 import { Header } from "../organisms/Header/Header";
 import { Footer } from "../organisms/Footer/Footer";
 
+import { AboutCultureTest } from "../Molecules/Description/AboutCultureTest";
+import { FirstShowModal } from "../organisms/Modal/FirstShowModal";
+
 const Culturetest = () => {
   // Q1
   const [q01Fam, setQ01Fam] = useState<string>("0");
@@ -124,9 +127,18 @@ const Culturetest = () => {
   }, [q06Fam, q06Inno, q06Mar, q06Bure]);
   return (
     <>
-    <Header />
+      <Header />
+
       <Flex justifyContent="center">
         <Box width="80%">
+          <FirstShowModal
+            title="診断方法について"
+            openText="診断方法について"
+            closeText="閉じる"
+            size="2xl"
+            children={<AboutCultureTest />}
+            buttonWidth="full"
+          />
           <QuestionCard
             questionText="1.顕著にみられる特徴"
             borderColor={q01BorderColor}

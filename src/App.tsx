@@ -14,6 +14,7 @@ import { Header } from "./components/organisms/Header/Header";
 
 import { NomalModal } from "./components/organisms/Modal/NomalModal";
 import { Footer } from "./components/organisms/Footer/Footer";
+import { FirstShowModal } from "./components/organisms/Modal/FirstShowModal";
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -74,6 +75,22 @@ function App() {
               size="full"
               children={<> これはチルドレンです</>}
               onClick={() => {}}
+              buttonWidth="full"
+            />
+          }
+        />
+        <Route
+          path="/showmodal"
+          element={
+            <FirstShowModal
+              title="this is modal"
+              openText="open"
+              closeText="close"
+              secondlyActionText="action"
+              size="full"
+              children={<> これはチルドレンです</>}
+              onClick={() => {}}
+              buttonWidth="full"
             />
           }
         />

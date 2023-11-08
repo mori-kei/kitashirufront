@@ -7,11 +7,11 @@ export const useDefaultShow = () => {
     setIsOpen(!isOpen);
   };
   const onClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
   return {
     isOpen,
     onOpen,
-    onClose
+    onClose,
   };
 };
