@@ -2,14 +2,14 @@ import { Flex, Box, Button, useToast } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
 
-import QuestionCard from "../organisms/card/QuestionCard";
-import { Header } from "../organisms/Header/Header";
-import { Footer } from "../organisms/Footer/Footer";
+import QuestionCard from "../Organisms/card/QuestionCard";
+import { Header } from "../Organisms/Header/Header";
+import { Footer } from "../Organisms/Footer/Footer";
 
 import { AboutCultureTest } from "../Molecules/Description/AboutCultureTest";
-import { FirstShowModal } from "../organisms/Modal/FirstShowModal";
-import { NomalModal } from "../organisms/Modal/NomalModal";
-import { error } from "console";
+import { FirstShowModal } from "../Organisms/Modal/FirstShowModal";
+import { NomalModal } from "../Organisms/Modal/NomalModal";
+import { CultureChart } from "../Molecules/Chart/CultureChart";
 
 const Culturetest = () => {
   const toast = useToast();
@@ -258,7 +258,7 @@ const Culturetest = () => {
             label4="  効率的に仕事が回っていること、安定した品質を持つ商品や安くてよいものを提供できていることこそが、とても重要な成功だと考える会社が望ましい。"
           />
           <Box mt="20px">
-            {q01Sum === 100 &&
+            {/* {q01Sum === 100 &&
             q02Sum === 100 &&
             q03Sum === 100 &&
             q04Sum === 100 &&
@@ -277,7 +277,7 @@ const Culturetest = () => {
               </>
             ) : (
               <Button
-              width="full"
+                width="full"
                 onClick={() =>
                   toast({
                     title: `合計値が100になっていない回答があります`,
@@ -285,9 +285,21 @@ const Culturetest = () => {
                     isClosable: true,
                   })
                 }
-              >結果を見る</Button>
-            )}
+              >
+                結果を見る
+              </Button>
+            )} */}
+            <NomalModal
+              title="診断結果"
+              openText="結果を見る"
+              closeText="戻る"
+              secondlyActionText="保存する"
+              size="full"
+              buttonWidth="full"
+              children={<CultureChart />}
+            />
           </Box>
+          
         </Box>
       </Flex>
 
