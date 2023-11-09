@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Button, useToast } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
 
@@ -8,8 +8,11 @@ import { Footer } from "../organisms/Footer/Footer";
 
 import { AboutCultureTest } from "../Molecules/Description/AboutCultureTest";
 import { FirstShowModal } from "../organisms/Modal/FirstShowModal";
+import { NomalModal } from "../organisms/Modal/NomalModal";
+import { error } from "console";
 
 const Culturetest = () => {
+  const toast = useToast();
   // Q1
   const [q01Fam, setQ01Fam] = useState<string>("0");
   const [q01Inno, setQ01Inno] = useState<string>("0");
@@ -41,95 +44,114 @@ const Culturetest = () => {
   const [q06Mar, setq06Mar] = useState<string>("0");
   const [q06Bure, setq06Bure] = useState<string>("0");
   const [q06BorderColor, setq06BorderColor] = useState("red");
+
+  //それぞれの問いの合計値
+  const [q01Sum, setQ01Sum] = useState(0);
+  const [q02Sum, setQ02Sum] = useState(0);
+  const [q03Sum, setQ03Sum] = useState(0);
+  const [q04Sum, setQ04Sum] = useState(0);
+  const [q05Sum, setQ05Sum] = useState(0);
+  const [q06Sum, setQ06Sum] = useState(0);
   // 合計値の計算 100であるかのチェック
   //Q1
   useEffect(() => {
-    const sum =
+    setQ01Sum(
       parseInt(q01Fam) +
-      parseInt(q01Inno) +
-      parseInt(q01Mar) +
-      parseInt(q01Bure);
+        parseInt(q01Inno) +
+        parseInt(q01Mar) +
+        parseInt(q01Bure)
+    );
 
-    if (sum === 100) {
+    if (q01Sum === 100) {
       setQ01BorderColor("green");
     } else {
       setQ01BorderColor("red");
     }
-  }, [q01Fam, q01Inno, q01Mar, q01Bure]);
+    console.log("aaa");
+  }, [q01Fam, q01Inno, q01Mar, q01Bure, q01Sum]);
   //Q2
   useEffect(() => {
-    const sum =
+    setQ02Sum(
       parseInt(q02Fam) +
-      parseInt(q02Inno) +
-      parseInt(q02Mar) +
-      parseInt(q02Bure);
+        parseInt(q02Inno) +
+        parseInt(q02Mar) +
+        parseInt(q02Bure)
+    );
 
-    if (sum === 100) {
+    if (q02Sum === 100) {
       setq02BorderColor("green");
     } else {
       setq02BorderColor("red");
     }
-  }, [q02Fam, q02Inno, q02Mar, q02Bure]);
+  }, [q02Fam, q02Inno, q02Mar, q02Bure, q02Sum]);
   //q3
   useEffect(() => {
-    const sum =
+    setQ03Sum(
       parseInt(q03Fam) +
-      parseInt(q03Inno) +
-      parseInt(q03Mar) +
-      parseInt(q03Bure);
+        parseInt(q03Inno) +
+        parseInt(q03Mar) +
+        parseInt(q03Bure)
+    );
 
-    if (sum === 100) {
+    if (q03Sum === 100) {
       setq03BorderColor("green");
     } else {
       setq03BorderColor("red");
     }
-  }, [q03Fam, q03Inno, q03Mar, q03Bure]);
+  }, [q03Fam, q03Inno, q03Mar, q03Bure, q03Sum]);
+
   //q4
   useEffect(() => {
-    const sum =
+    setQ04Sum(
       parseInt(q04Fam) +
-      parseInt(q04Inno) +
-      parseInt(q04Mar) +
-      parseInt(q04Bure);
+        parseInt(q04Inno) +
+        parseInt(q04Mar) +
+        parseInt(q04Bure)
+    );
 
-    if (sum === 100) {
+    if (q04Sum === 100) {
       setq04BorderColor("green");
     } else {
       setq04BorderColor("red");
     }
-  }, [q04Fam, q04Inno, q04Mar, q04Bure]);
+  }, [q04Fam, q04Inno, q04Mar, q04Bure, q04Sum]);
+
   //q5
   useEffect(() => {
-    const sum =
+    setQ05Sum(
       parseInt(q05Fam) +
-      parseInt(q05Inno) +
-      parseInt(q05Mar) +
-      parseInt(q05Bure);
+        parseInt(q05Inno) +
+        parseInt(q05Mar) +
+        parseInt(q05Bure)
+    );
 
-    if (sum === 100) {
+    if (q05Sum === 100) {
       setq05BorderColor("green");
     } else {
       setq05BorderColor("red");
     }
-  }, [q05Fam, q05Inno, q05Mar, q05Bure]);
-  useEffect(() => {
-    const sum =
-      parseInt(q06Fam) +
-      parseInt(q06Inno) +
-      parseInt(q06Mar) +
-      parseInt(q06Bure);
+  }, [q05Fam, q05Inno, q05Mar, q05Bure, q05Sum]);
 
-    if (sum === 100) {
+  useEffect(() => {
+    setQ06Sum(
+      parseInt(q06Fam) +
+        parseInt(q06Inno) +
+        parseInt(q06Mar) +
+        parseInt(q06Bure)
+    );
+
+    if (q06Sum === 100) {
       setq06BorderColor("green");
     } else {
       setq06BorderColor("red");
     }
-  }, [q06Fam, q06Inno, q06Mar, q06Bure]);
+  }, [q06Fam, q06Inno, q06Mar, q06Bure, q06Sum]);
+
   return (
     <>
       <Header />
 
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" mb="50px">
         <Box width="80%">
           <FirstShowModal
             title="診断方法について"
@@ -235,8 +257,40 @@ const Culturetest = () => {
             label3="  顧客に評価されたり、ライバル企業に勝ち抜くことこそが、とても重要な成功だと考える会社が望ましい。"
             label4="  効率的に仕事が回っていること、安定した品質を持つ商品や安くてよいものを提供できていることこそが、とても重要な成功だと考える会社が望ましい。"
           />
+          <Box mt="20px">
+            {q01Sum === 100 &&
+            q02Sum === 100 &&
+            q03Sum === 100 &&
+            q04Sum === 100 &&
+            q05Sum === 100 &&
+            q06Sum === 100 ? (
+              <>
+                <NomalModal
+                  title="診断結果"
+                  openText="結果を見る"
+                  closeText="戻る"
+                  secondlyActionText="保存する"
+                  size="full"
+                  buttonWidth="full"
+                  children={<></>}
+                />
+              </>
+            ) : (
+              <Button
+              width="full"
+                onClick={() =>
+                  toast({
+                    title: `合計値が100になっていない回答があります`,
+                    status: "error",
+                    isClosable: true,
+                  })
+                }
+              >結果を見る</Button>
+            )}
+          </Box>
         </Box>
       </Flex>
+
       <Footer />
     </>
   );
