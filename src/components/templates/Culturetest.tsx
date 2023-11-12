@@ -2,14 +2,15 @@ import { Flex, Box, Button, useToast } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
 
-import QuestionCard from "../organisms/card/QuestionCard";
-import { Header } from "../organisms/Header/Header";
-import { Footer } from "../organisms/Footer/Footer";
+import QuestionCard from "../Organisms/card/QuestionCard";
+import { Header } from "../Organisms/Header/Header";
+import { Footer } from "../Organisms/Footer/Footer";
 
 import { AboutCultureTest } from "../Molecules/Description/AboutCultureTest";
-import { FirstShowModal } from "../organisms/Modal/FirstShowModal";
-import { NomalModal } from "../organisms/Modal/NomalModal";
-import { error } from "console";
+import { FirstShowModal } from "../Organisms/Modal/FirstShowModal";
+import { NomalModal } from "../Organisms/Modal/NomalModal";
+import { CultureChart } from "../Molecules/Chart/CultureChart";
+
 
 const Culturetest = () => {
   const toast = useToast();
@@ -52,6 +53,12 @@ const Culturetest = () => {
   const [q04Sum, setQ04Sum] = useState(0);
   const [q05Sum, setQ05Sum] = useState(0);
   const [q06Sum, setQ06Sum] = useState(0);
+
+  //それぞれの合計値を6で割った結果の値
+  const [resultFam, setResultFam] = useState(0);
+  const [resultInno, setResultInno] = useState(0);
+  const [resultMar, setResultMar] = useState(0);
+  const [resultBure, setResultBure] = useState(0);
   // 合計値の計算 100であるかのチェック
   //Q1
   useEffect(() => {
@@ -146,6 +153,52 @@ const Culturetest = () => {
       setq06BorderColor("red");
     }
   }, [q06Fam, q06Inno, q06Mar, q06Bure, q06Sum]);
+
+  //各組織文化の結果を算出する
+  useEffect(() => {
+    const sum =
+      parseInt(q01Fam) +
+      parseInt(q02Fam) +
+      parseInt(q03Fam) +
+      parseInt(q04Fam) +
+      parseInt(q05Fam) +
+      parseInt(q06Fam);
+    setResultFam(sum / 6);
+    console.log(resultFam);
+  }, [q01Fam, q02Fam, q03Fam, q04Fam, q05Fam, q06Fam, resultFam]);
+  useEffect(() => {
+    const sum =
+      parseInt(q01Inno) +
+      parseInt(q02Inno) +
+      parseInt(q03Inno) +
+      parseInt(q04Inno) +
+      parseInt(q05Inno) +
+      parseInt(q06Inno);
+    setResultInno(sum / 6);
+    console.log(resultInno);
+  }, [q01Inno, q02Inno, q03Inno, q04Inno, q05Inno, q06Inno, resultInno]);
+  useEffect(() => {
+    const sum =
+      parseInt(q01Mar) +
+      parseInt(q02Mar) +
+      parseInt(q03Mar) +
+      parseInt(q04Mar) +
+      parseInt(q05Mar) +
+      parseInt(q06Mar);
+    setResultMar(sum / 6);
+    console.log(resultMar);
+  }, [q01Mar, q02Mar, q03Mar, q04Mar, q05Mar, q06Mar, resultMar]);
+  useEffect(() => {
+    const sum =
+      parseInt(q01Bure) +
+      parseInt(q02Bure) +
+      parseInt(q03Bure) +
+      parseInt(q04Bure) +
+      parseInt(q05Bure) +
+      parseInt(q06Bure);
+    setResultBure(sum / 6);
+    console.log(resultBure);
+  }, [q01Bure, q02Bure, q03Bure, q04Bure, q05Bure, q06Bure, resultBure]);
 
   return (
     <>
@@ -270,14 +323,22 @@ const Culturetest = () => {
                   openText="結果を見る"
                   closeText="戻る"
                   secondlyActionText="保存する"
+                  onClick={() => {}}
                   size="full"
                   buttonWidth="full"
-                  children={<></>}
+                  children={
+                    <CultureChart
+                      resultFam={resultFam}
+                      resultInno={resultInno}
+                      resultMar={resultMar}
+                      resultBure={resultBure}
+                    />
+                  }
                 />
               </>
             ) : (
               <Button
-              width="full"
+                width="full"
                 onClick={() =>
                   toast({
                     title: `合計値が100になっていない回答があります`,
@@ -285,8 +346,26 @@ const Culturetest = () => {
                     isClosable: true,
                   })
                 }
-              >結果を見る</Button>
+              >
+                結果を見る
+              </Button>
             )}
+            <NomalModal
+              title="診断結果"
+              openText="結果を見る"
+              closeText="戻る"
+              secondlyActionText="保存する"
+              size="full"
+              buttonWidth="full"
+              children={
+                <CultureChart
+                  resultFam={resultFam}
+                  resultInno={resultInno}
+                  resultMar={resultMar}
+                  resultBure={resultBure}
+                />
+              }
+            />
           </Box>
         </Box>
       </Flex>

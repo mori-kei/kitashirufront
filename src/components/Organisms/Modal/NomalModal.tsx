@@ -44,11 +44,11 @@ export const NomalModal = ({
           <ModalBody>{children}</ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button variant="ghost" colorScheme="blue" mr={3} onClick={onClose}>
               {closeText}
             </Button>
             {onClick ? (
-              <Button variant="ghost" onClick={onClick}>
+              <Button  colorScheme="blue" onClick={onClick}>
                 {secondlyActionText}
               </Button>
             ) : null}
