@@ -47,7 +47,7 @@ export const FirstShowModal = ({
           <ModalBody>{children}</ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button  colorScheme="blue" mr={3} onClick={onClose}>
               {closeText}
             </Button>
             {onClick ? (

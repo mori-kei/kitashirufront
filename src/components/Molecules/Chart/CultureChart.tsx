@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+
 import {
   Radar,
   RadarChart,
@@ -7,14 +7,24 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
 } from "recharts";
-import { Box } from "@chakra-ui/react";
+type Props = {
+  resultFam: number;
+  resultInno: number;
+  resultMar: number;
+  resultBure: number;
+};
 
-export const CultureChart = () => {
+export const CultureChart = ({
+  resultFam,
+  resultInno,
+  resultMar,
+  resultBure,
+}: Props) => {
   const items = [
-    { culture: "家族文化", A: 25 },
-    { culture: "イノベーション文化", A: 25 },
-    { culture: "マーケット文化", A: 25 },
-    { culture: "官僚文化", A: 25 },
+    { culture: "家族文化", A: resultFam },
+    { culture: "イノベーション文化", A: resultInno },
+    { culture: "マーケット文化", A: resultMar },
+    { culture: "官僚文化", A: resultBure },
   ];
   return (
     <>
