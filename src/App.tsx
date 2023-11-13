@@ -11,10 +11,11 @@ import ProtectedRedirect from "./components/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
 import { Header } from "./components/Organisms/Header/Header";
-import "./CSS/chart.css"
+import "./CSS/chart.css";
 import { NomalModal } from "./components/Organisms/Modal/NomalModal";
 import { Footer } from "./components/Organisms/Footer/Footer";
 import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
+
 function App() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
@@ -28,6 +29,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/header" element={<Header />} />
