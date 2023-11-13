@@ -25,13 +25,13 @@ export const Header: React.FC = () => {
       <Box display={{ base: "none", md: "block" }}>
         {user ? (
           <Box>
-            <HoverLink href="#" mr={4}>
+            <HoverLink to="/test" mr={4}>
               組織診断
             </HoverLink>
-            <HoverLink href="#" mr={4}>
+            <HoverLink to="/test" mr={4}>
               企業を見る
             </HoverLink>
-            <HoverLink href="#" mr={4}>
+            <HoverLink to="/test" mr={4}>
               組織文化について
             </HoverLink>
             <Link mr={4} color={"blackAlpha.700"} onClick={logout} href="/">
