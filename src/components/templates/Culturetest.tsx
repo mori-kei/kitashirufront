@@ -10,9 +10,11 @@ import { AboutCultureTest } from "../Molecules/Description/AboutCultureTest";
 import { FirstShowModal } from "../Organisms/Modal/FirstShowModal";
 import { NomalModal } from "../Organisms/Modal/NomalModal";
 import { CultureChart } from "../Molecules/Chart/CultureChart";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Culturetest = () => {
+  const navigate = useNavigate();
   const toast = useToast();
   // Q1
   const [q01Fam, setQ01Fam] = useState<string>("0");
@@ -199,7 +201,22 @@ const Culturetest = () => {
     setResultBure(sum / 6);
     console.log(resultBure);
   }, [q01Bure, q02Bure, q03Bure, q04Bure, q05Bure, q06Bure, resultBure]);
-
+  const createProfile = async () => {
+    try {
+      axios.post(
+        `${process.env.REACT_APP_API_URL}/profile`,
+        {
+          beuraucracy: resultBure,
+          family: resultFam,
+          Innovation: resultInno,
+          market: resultMar,
+        },
+        { withCredentials: true }
+      );
+      alert("保存されました");
+      navigate("/");
+    } catch (error) {}
+  };
   return (
     <>
       <Header />
@@ -323,7 +340,7 @@ const Culturetest = () => {
                   openText="結果を見る"
                   closeText="戻る"
                   secondlyActionText="保存する"
-                  onClick={() => {}}
+                  onClick={createProfile}
                   size="full"
                   buttonWidth="full"
                   children={
@@ -357,6 +374,7 @@ const Culturetest = () => {
               secondlyActionText="保存する"
               size="full"
               buttonWidth="full"
+              onClick={createProfile}
               children={
                 <CultureChart
                   resultFam={resultFam}
