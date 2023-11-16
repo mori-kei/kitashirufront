@@ -2,7 +2,7 @@ export type Profile = {
   id: number;
   beuraucracy: number;
   family: number;
-  innovation: number;
+  Innovation: number;
   market: number;
   created_at: Date;
   updated_at: Date;
@@ -18,5 +18,8 @@ export type Credential = {
 };
 export type LoginUser = {
   id: number;
-  email:string
+  email: string;
+};
+export type CultureValue = {
+  [key: string]: number;
 };

@@ -22,6 +22,9 @@ const Home = () => {
         <div className="">
           <Link to={"/showmodal"}>開いているmodal</Link>
         </div>
+        <div className="">
+          <Link to={"/profile"}>プロフィール</Link>
+        </div>
       </div>
     </div>
   );

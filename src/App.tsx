@@ -15,6 +15,8 @@ import "./CSS/chart.css";
 import { NomalModal } from "./components/Organisms/Modal/NomalModal";
 import { Footer } from "./components/Organisms/Footer/Footer";
 import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
+import { ProfilePage } from "./components/templates/Profile";
+
 
 function App() {
   useEffect(() => {
@@ -56,6 +58,11 @@ function App() {
               <Protected />
             </ProtectedRedirect>
           }
+        />
+        <Route path="/profile"
+        element={
+          <ProfilePage />
+        }
         />
         <Route
           path="/test"
