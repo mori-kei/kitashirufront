@@ -41,7 +41,8 @@ export const DrawerMenu = () => {
               <Stack as="nav">
                 {user ? (
                   <>
-                    <HoverLink to="/">組織診断</HoverLink>
+                    <HoverLink to="/test">組織診断</HoverLink>
+                    <HoverLink to="/profile">診断結果</HoverLink>
                     <HoverLink to="/">企業を見る</HoverLink>
                     <HoverLink to="/">組織文化について</HoverLink>
                     <HoverLink to="/" onClick={logout}>

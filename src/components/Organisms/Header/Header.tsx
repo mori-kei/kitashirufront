@@ -16,17 +16,24 @@ export const Header: React.FC = () => {
       boxShadow="md"
       mb="30px"
     >
-      <Flex align={"center"}>
-        <Image src={logo} w={50} />
-        <Heading as="h1" color={"blackAlpha.700"} size="lg">
-          きたしる
-        </Heading>
-      </Flex>
+      <Link href="/">
+        <Flex align={"center"}>
+          <Image src={logo} w={50} />
+
+          <Heading as="h1" color={"blackAlpha.700"} size="lg">
+            きたしる
+          </Heading>
+        </Flex>
+      </Link>
+
       <Box display={{ base: "none", md: "block" }}>
         {user ? (
           <Box>
             <HoverLink to="/test" mr={4}>
               組織診断
+            </HoverLink>
+            <HoverLink to="/profile" mr={4}>
+              診断結果
             </HoverLink>
             <HoverLink to="/test" mr={4}>
               企業を見る
@@ -34,6 +41,7 @@ export const Header: React.FC = () => {
             <HoverLink to="/test" mr={4}>
               組織文化について
             </HoverLink>
+
             <Link mr={4} color={"blackAlpha.700"} onClick={logout} href="/">
               <Button>ログアウト</Button>
             </Link>
