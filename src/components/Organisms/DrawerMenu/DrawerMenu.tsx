@@ -41,15 +41,15 @@ export const DrawerMenu = () => {
               <Stack as="nav">
                 {user ? (
                   <>
-                    <HoverLink href="/">組織診断</HoverLink>
-                    <HoverLink href="/">企業を見る</HoverLink>
-                    <HoverLink href="/">組織文化について</HoverLink>
-                    <HoverLink href="/" onClick={logout}>
+                    <HoverLink to="/">組織診断</HoverLink>
+                    <HoverLink to="/">企業を見る</HoverLink>
+                    <HoverLink to="/">組織文化について</HoverLink>
+                    <HoverLink to="/" onClick={logout}>
                       ログアウト
                     </HoverLink>
                   </>
                 ) : (
-                  <HoverLink  href="/login">ログイン</HoverLink>
+                  <HoverLink to="/login">ログイン</HoverLink>
                 )}
               </Stack>
             </DrawerBody>
