@@ -3,11 +3,11 @@ import { useAuthContext } from "../context/authContext";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Organisms/Header/Header";
 const Home = () => {
-  const { user, logout } = useAuthContext();
+  const { auth, logout } = useAuthContext();
   return (
     <div>
       <Header />
-      <h2>Welcome home {user && user.id}</h2>
+      <h2>Welcome home {auth && auth.id}</h2>
       <div className="">
         <Link to={"/login"}>login</Link>
         <div onClick={logout}>ログアウト</div>

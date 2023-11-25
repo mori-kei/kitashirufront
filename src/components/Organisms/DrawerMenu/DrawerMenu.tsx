@@ -19,7 +19,7 @@ export const DrawerMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLButtonElement>(null);
 
-  const { user, logout } = useAuthContext();
+  const { auth, logout } = useAuthContext();
   return (
     <>
       {/* ハンバーガーアイコン部分 */}
@@ -39,7 +39,7 @@ export const DrawerMenu = () => {
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
               <Stack as="nav">
-                {user ? (
+                {auth ? (
                   <>
                     <HoverLink to="/">組織診断</HoverLink>
                     <HoverLink to="/">企業を見る</HoverLink>

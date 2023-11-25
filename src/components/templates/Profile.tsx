@@ -1,4 +1,4 @@
-import { Divider, Flex, Heading, Stack, Text } from "@chakra-ui/layout";
+import { Divider, Flex,  Stack, Text } from "@chakra-ui/layout";
 
 import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";

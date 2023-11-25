@@ -4,7 +4,7 @@ import { DrawerMenu } from "../DrawerMenu/DrawerMenu";
 import { HoverLink } from "../../Atoms/Link/HoverLink";
 import logo from "../../../images/kitashiru_logo.jpg";
 export const Header: React.FC = () => {
-  const { user, logout } = useAuthContext();
+  const { auth, logout } = useAuthContext();
 
   return (
     <Flex
@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
         </Heading>
       </Flex>
       <Box display={{ base: "none", md: "block" }}>
-        {user ? (
+        {auth ? (
           <Box>
             <HoverLink to="/test" mr={4}>
               組織診断

@@ -7,24 +7,25 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import { LoginUser } from "../types";
+import { LoginAuth } from "../types";
 
 interface Props {
   children: ReactNode;
 }
 
 interface AuthContextType {
-  user: LoginUser | null;
-  setUser: React.Dispatch<React.SetStateAction<LoginUser | null>>;
+  auth: LoginAuth | null;
+  setAuth: React.Dispatch<React.SetStateAction<LoginAuth | null>>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   signup: (email: string, password: string) => void;
+  adminLogin: (email: string, password: string) => Promise<void>;
 }
 
 const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider: FC<Props> = ({ children }) => {
-  const [user, setUser] = useState<LoginUser | null>(null);
+  const [auth, setAuth] = useState<LoginAuth | null>(null);
 
   const login = async (email: string, password: string) => {
     try {
@@ -34,17 +35,31 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         { withCredentials: true }
       );
       // データをuserにセットする
-      setUser(res.data);
+      setAuth(res.data);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
+  };
+  const adminLogin = async (email: string, password: string) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/admin/login`,
+        { email, password },
+        { withCredentials: true }
+      );
+      // データをauthにセットする
+      setAuth(res.data);
+      console.log("succsess!")
     } catch (error: any) {
       console.log(error.response.data);
     }
   };
   const signup = (email: string, password: string) => {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/signup`, { email, password }).then(response => {
-        login(email,password)
-      }
-      )
+      .post(`${process.env.REACT_APP_API_URL}/signup`, { email, password })
+      .then((response) => {
+        login(email, password);
+      })
       .catch((error) => {
         console.error("Error", error);
       });
@@ -55,10 +70,10 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         withCredentials: true,
       });
       // データをuserにセットする
-      setUser(res.data);
+      setAuth(res.data);
     } catch (error: any) {
       console.log(error.response.data);
-      setUser(null);
+      setAuth(null);
     }
   };
 
@@ -71,13 +86,15 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         withCredentials: true,
       });
       // データをuserにセットする
-      setUser(null);
+      setAuth(null);
     } catch (error: any) {
       console.log(error.response.data);
     }
   };
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout,signup }}>
+    <AuthContext.Provider
+      value={{ auth, setAuth, login, logout, signup, adminLogin }}
+    >
       {children}
     </AuthContext.Provider>
   );
