@@ -11,6 +11,9 @@ const Home = () => {
       <div className="">
         <Link to={"/login"}>login</Link>
         <div onClick={logout}>ログアウト</div>
+        <div className="">
+        <Link to={"/admin/header"}>adminheader</Link>
+        </div>
         <Link to={"/protected"}>protected</Link>
         <Link to={"/test"}>test</Link>
         <div className="">

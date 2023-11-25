@@ -18,6 +18,8 @@ import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
 import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
+import { AdminHeader } from "./components/Organisms/Header/AdminHeader";
+import { AdminProtectedRedirect } from "./components/Redirect/AdminProtectRedirect";
 
 function App() {
   useEffect(() => {
@@ -40,6 +42,14 @@ function App() {
             <AuthRedirect>
               <AdminLogin />
             </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/header"
+          element={
+            <AdminProtectedRedirect>
+              <AdminHeader />
+            </AdminProtectedRedirect>
           }
         />
         <Route path="/header" element={<Header />} />
