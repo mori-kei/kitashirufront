@@ -6,8 +6,8 @@ import Login from "./pages/Login";
 import Protected from "./pages/Protected";
 import axios from "axios";
 import { CsrfToken } from "./types";
-import LoginRedirect from "./components/LoginRedirect";
-import ProtectedRedirect from "./components/ProtectedRedirect";
+import LoginRedirect from "./components/Redirect/LoginRedirect";
+import ProtectedRedirect from "./components/Redirect/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
 import { Header } from "./components/Organisms/Header/Header";
@@ -16,7 +16,8 @@ import { NomalModal } from "./components/Organisms/Modal/NomalModal";
 import { Footer } from "./components/Organisms/Footer/Footer";
 import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
 import { ProfilePage } from "./components/templates/Profile";
-
+import { AdminLogin } from "./pages/AdminLogin";
+import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
 
 function App() {
   useEffect(() => {
@@ -31,9 +32,16 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-     
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/admin/login"
+          element={
+            <AuthRedirect>
+              <AdminLogin />
+            </AuthRedirect>
+          }
+        />
         <Route path="/header" element={<Header />} />
         <Route
           path="/login"
@@ -59,11 +67,7 @@ function App() {
             </ProtectedRedirect>
           }
         />
-        <Route path="/profile"
-        element={
-          <ProfilePage />
-        }
-        />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route
           path="/test"
           element={

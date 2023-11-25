@@ -1,5 +1,5 @@
 import React, { ReactNode, FC } from "react";
-import { useAuthContext } from "../context/authContext";
+import { useAuthContext } from "../../context/authContext";
 import { Navigate } from "react-router-dom";
 
 interface Props {
@@ -7,11 +7,11 @@ interface Props {
 }
 
 const ProtectedRedirect: FC<Props> = ({ children }) => {
-  const { user } = useAuthContext();
-  if (!user) {
-    return <Navigate to={"/login"} />;
-  } else {
+  const { auth } = useAuthContext();
+  if (auth?.user_type === "user") {
     return <>{children}</>;
+  } else {
+    return <Navigate to={"/login"} />;
   }
 };
 

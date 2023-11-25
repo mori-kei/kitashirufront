@@ -16,9 +16,10 @@ export type Credential = {
   email: string;
   password: string;
 };
-export type LoginUser = {
+export type LoginAuth = {
   id: number;
   email: string;
+  user_type: string;
 };
 export type CultureValue = {
   [key: string]: number;
