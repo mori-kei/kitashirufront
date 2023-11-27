@@ -18,7 +18,7 @@ export const Sidebar = () => {
       bg="white"
     >
       <Text fontSize={"lg"} fontWeight={"bold"}>
-        きたしるNote編集部の記事
+        きたしるnote編集部の記事
       </Text>
       {noteUrls.map((noteUrl) => (
         <NoteCard src={noteUrl} />

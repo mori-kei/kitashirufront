@@ -13,9 +13,8 @@ import { Sidebar } from "../Organisms/Sidebar/Sidebar";
 type Props = {
   profile: Profile;
   articles: Article[];
- 
 };
-export const Articles = ({ profile, articles}: Props) => {
+export const Articles = ({ profile, articles }: Props) => {
   const displaySidebar = useBreakpointValue({ base: "none", lg: "block" }); // lgブレークポイントで表示
   return (
     <Flex justifyContent={"space-between"}>
