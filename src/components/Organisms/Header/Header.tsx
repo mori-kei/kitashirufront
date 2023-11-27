@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
             <HoverLink to="/articles" mr={4}>
               企業を見る
             </HoverLink>
-            <HoverLink to="/test" mr={4}>
+            <HoverLink to="/culture" mr={4}>
               組織文化について
             </HoverLink>
             <Link mr={4} color={"blackAlpha.700"} onClick={logout} href="/">

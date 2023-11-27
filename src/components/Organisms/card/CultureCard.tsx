@@ -7,15 +7,19 @@ type Props = {
   imageAlt: string;
   culture: string;
   descripion: string;
+  width?: string;
+  maxW?: string;
 };
 export const CultureCard = ({
   imageUrl,
   imageAlt,
   culture,
   descripion,
+  maxW,
+  width,
 }: Props) => {
   return (
-    <Card maxW="sm">
+    <Card maxW={maxW} width={width}>
       <CardBody>
         <Image src={imageUrl} alt={imageAlt} borderRadius="lg" />
         <Stack mt="6" spacing="3">

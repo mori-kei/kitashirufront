@@ -14,6 +14,7 @@ import family from "../../images/family.png";
 import market from "../../images/market.png";
 import bure from "../../images/Bure.png";
 import innovation from "../../images/innovation.png";
+import { Link } from "react-router-dom";
 export const ProfilePage = () => {
   const [profile, setProfile] = useState<Profile>();
   const [maxCultureKeys, setMaxCultureKeys] = useState<Array<string>>();
@@ -166,12 +167,16 @@ export const ProfilePage = () => {
 
           <CardFooter>
             <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="blue">
-                自分に合った企業をみる
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                組織文化を見る
-              </Button>
+              <Link to={"/articles"}>
+                <Button variant="solid" colorScheme="blue">
+                  自分に合った企業をみる
+                </Button>
+              </Link>
+              <Link to={"/culture"}>
+                <Button variant="ghost" colorScheme="blue">
+                  組織文化を見る
+                </Button>
+              </Link>
             </ButtonGroup>
           </CardFooter>
         </Card>
