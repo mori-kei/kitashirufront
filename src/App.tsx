@@ -19,6 +19,7 @@ import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
 import { ArticlesPage } from "./pages/ArticlesPage";
+import { CulturePage } from "./pages/CulturePage";
 
 function App() {
   useEffect(() => {
@@ -116,6 +117,7 @@ function App() {
             />
           }
         />
+        <Route path="/culture" element={<CulturePage />} />
       </Routes>
     </BrowserRouter>
   );

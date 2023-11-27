@@ -28,6 +28,9 @@ const Home = () => {
         <div className="">
           <Link to={"/articles"}>企業一覧</Link>
         </div>
+        <div className="">
+          <Link to={"/culture"}>組織文化について</Link>
+        </div>
       </div>
     </div>
   );
