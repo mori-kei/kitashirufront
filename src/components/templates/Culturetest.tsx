@@ -214,7 +214,7 @@ const Culturetest = () => {
         { withCredentials: true }
       );
       alert("保存されました");
-      navigate("/");
+      navigate("/articles");
     } catch (error) {}
   };
   return (
