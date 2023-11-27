@@ -49,7 +49,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       );
       // データをauthにセットする
       setAuth(res.data);
-      console.log("succsess!")
+      console.log("succsess!");
     } catch (error: any) {
       console.log(error.response.data);
     }
@@ -66,7 +66,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
   };
   const checkIsLogin = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/me`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth`, {
         withCredentials: true,
       });
       // データをuserにセットする
