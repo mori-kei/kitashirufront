@@ -16,12 +16,14 @@ export const Header: React.FC = () => {
       boxShadow="md"
       mb="30px"
     >
-      <Flex align={"center"}>
-        <Image src={logo} w={50} />
-        <Heading as="h1" color={"blackAlpha.700"} size="lg">
-          きたしる
-        </Heading>
-      </Flex>
+      <HoverLink to={"/"}>
+        <Flex align={"center"}>
+          <Image src={logo} w={50} />
+          <Heading as="h1" color={"blackAlpha.700"} size="lg">
+            きたしる
+          </Heading>
+        </Flex>
+      </HoverLink>
       <Box display={{ base: "none", md: "block" }}>
         {auth ? (
           <Box>

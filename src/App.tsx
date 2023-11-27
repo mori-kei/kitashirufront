@@ -18,6 +18,7 @@ import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
 import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
+import { ArticlesPage } from "./pages/ArticlesPage";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,14 @@ function App() {
             <LoginRedirect>
               <Login />
             </LoginRedirect>
+          }
+        />
+        <Route
+          path="articles"
+          element={
+            <ProtectedRedirect>
+              <ArticlesPage />
+            </ProtectedRedirect>
           }
         />
         <Route
