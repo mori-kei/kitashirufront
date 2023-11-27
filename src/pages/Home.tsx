@@ -25,6 +25,9 @@ const Home = () => {
         <div className="">
           <Link to={"/profile"}>プロフィール</Link>
         </div>
+        <div className="">
+          <Link to={"/articles"}>企業一覧</Link>
+        </div>
       </div>
     </div>
   );
