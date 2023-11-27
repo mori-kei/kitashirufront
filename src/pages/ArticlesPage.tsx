@@ -14,13 +14,13 @@ export const ArticlesPage = () => {
       setProfile(response.data);
     });
   }, []);
-  useEffect(() => {}, []);
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/articles`).then((response) => {
       setArticles(response.data);
     });
   }, []);
-  useEffect(() => {}, []);
+
   return (
     <>
       <Header />

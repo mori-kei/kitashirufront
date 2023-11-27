@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
             <HoverLink to="/test" mr={4}>
               組織診断
             </HoverLink>
-            <HoverLink to="/test" mr={4}>
+            <HoverLink to="/articles" mr={4}>
               企業を見る
             </HoverLink>
             <HoverLink to="/test" mr={4}>
