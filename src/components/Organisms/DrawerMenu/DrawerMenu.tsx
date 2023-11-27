@@ -42,7 +42,7 @@ export const DrawerMenu = () => {
                 {auth ? (
                   <>
                     <HoverLink to="/">組織診断</HoverLink>
-                    <HoverLink to="/">企業を見る</HoverLink>
+                    <HoverLink to="/articles">企業を見る</HoverLink>
                     <HoverLink to="/">組織文化について</HoverLink>
                     <HoverLink to="/" onClick={logout}>
                       ログアウト
