@@ -15,7 +15,7 @@ export const NoteCard = ({ src }: Props) => {
           border: "0",
           display: "block",
           maxWidth: "99%",
-          width: "494px",
+          width: "100%",
           padding: "0px",
           margin: "10px 0px",
           position: "static",

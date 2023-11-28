@@ -20,6 +20,7 @@ import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
 import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
+import { ArticlePage } from "./pages/ArticlePage";
 
 function App() {
   useEffect(() => {
@@ -58,6 +59,14 @@ function App() {
           element={
             <ProtectedRedirect>
               <ArticlesPage />
+            </ProtectedRedirect>
+          }
+        />
+        <Route
+          path="articles/:aricleId"
+          element={
+            <ProtectedRedirect>
+              <ArticlePage />
             </ProtectedRedirect>
           }
         />
