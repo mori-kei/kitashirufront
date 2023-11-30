@@ -10,6 +10,7 @@ import {
   useDisclosure,
   Button,
 } from "@chakra-ui/react";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
 
 type Props = {
   title: string;
@@ -19,7 +20,8 @@ type Props = {
   onClick?: () => void;
   children: ReactNode;
   size: string;
-  buttonWidth:string
+  buttonWidth: string;
+  infoBool?: boolean;
 };
 export const NomalModal = ({
   title,
@@ -29,12 +31,16 @@ export const NomalModal = ({
   onClick,
   children,
   size,
-  buttonWidth
+  buttonWidth,
+  infoBool,
 }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button  width={buttonWidth} onClick={onOpen}>{openText}</Button>
+      <Button width={buttonWidth} onClick={onOpen}>
+        {infoBool === true ? <InfoOutlineIcon color={"blue.600"} mr={2}/> : null}{" "}
+        {openText}
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size={size}>
         <ModalOverlay />
@@ -48,7 +54,7 @@ export const NomalModal = ({
               {closeText}
             </Button>
             {onClick ? (
-              <Button  colorScheme="blue" onClick={onClick}>
+              <Button colorScheme="blue" onClick={onClick}>
                 {secondlyActionText}
               </Button>
             ) : null}

@@ -17,7 +17,7 @@ type Props = {
 export const Articles = ({ profile, articles }: Props) => {
   const displaySidebar = useBreakpointValue({ base: "none", lg: "block" }); // lgブレークポイントで表示
   return (
-    <Flex justifyContent={"space-between"}>
+    <Flex justifyContent={"space-between"} p={30} pt={0}>
       {displaySidebar && (
         <Box w={{ base: "0", lg: "25%" }}>
           <Sidebar />

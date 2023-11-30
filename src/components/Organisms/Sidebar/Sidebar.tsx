@@ -18,7 +18,7 @@ export const Sidebar = () => {
       boxShadow="0 0 8px rgba(0,0,0,0.1)"
       bg="white"
     >
-      <Text fontSize={"lg"} fontWeight={"bold"}>
+      <Text fontSize={"lg"} fontWeight={"bold"} >
         きたしるnote編集部の記事
       </Text>
       {noteUrls.map((noteUrl) => (

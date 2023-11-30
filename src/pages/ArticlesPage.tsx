@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArticleCard } from "../components/Organisms/card/ArticleCard";
-import { Grid, GridItem } from "@chakra-ui/react";
+
 import { Header } from "../components/Organisms/Header/Header";
 import { Article, Profile } from "../types";
 import axios from "axios";
