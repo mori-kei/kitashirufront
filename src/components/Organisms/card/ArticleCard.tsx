@@ -2,7 +2,6 @@ import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 
 import { CultureCompareChart } from "../../Molecules/Chart/CultureCompareChart";
 import { Article, Profile } from "../../../types";
-import { Link } from "react-router-dom";
 import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
 import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
 type Props = {
