@@ -10,6 +10,7 @@ export const Sidebar = () => {
   ];
   return (
     <Box
+    width="full"
       padding={5}
       borderWidth="1px"
       borderRadius="md"

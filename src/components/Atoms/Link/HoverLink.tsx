@@ -19,6 +19,5 @@ export const HoverLink = (props: HoverLinkProps) => (
     {...props}
     color={"blackAlpha.700"}
     fontWeight={600}
-    
   />
 );

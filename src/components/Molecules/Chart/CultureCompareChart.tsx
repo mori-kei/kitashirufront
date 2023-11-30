@@ -6,7 +6,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-
 } from "recharts";
 type Props = {
   resultFam: number;
@@ -68,11 +67,10 @@ export const CultureCompareChart = ({
           <Radar
             name="you" // そのチャートが誰のデータか指定(チャート下にここで指定した値が表示される)
             dataKey="you" // 表示する値と対応するdata内のキー
-            stroke="#8884d8" // レーダーの外枠の色
+            stroke="#82ca9d" // レーダーの外枠の色
             fill="#82ca9d" // レーダー内の色
             fillOpacity={0.6} // レーダー内の色の濃さ(1にすると濃さMAX)
           />
-     
         </RadarChart>
       </div>
     </>

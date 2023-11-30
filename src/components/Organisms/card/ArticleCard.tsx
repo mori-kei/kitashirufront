@@ -3,6 +3,8 @@ import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 import { CultureCompareChart } from "../../Molecules/Chart/CultureCompareChart";
 import { Article, Profile } from "../../../types";
 import { Link } from "react-router-dom";
+import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
+import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
 type Props = {
   article: Article;
   profile: Profile;
@@ -50,13 +52,13 @@ export const ArticleCard = ({ article, profile }: Props) => {
         従業員数: {article.company_size}
       </Text>
       <Flex justify="space-between">
-        <Button colorScheme="blue" size="sm" flexBasis="48%">
-          <Link to={`/articles/${article.id}`}>もっと詳しく</Link>
-        </Button>
-
-        <Button variant="outline" colorScheme="blue" size="sm" flexBasis="48%">
-          <Link to={article.url}>企業HP</Link>
-        </Button>
+        <InternalLinkButton
+          to={`/articles/${article.id}`}
+          label="もっと詳しく"
+        />
+        {article.url ? (
+          <ExternalLinkBotton to={article.url} label="企業HP" />
+        ) : null}
       </Flex>
     </Box>
   );
