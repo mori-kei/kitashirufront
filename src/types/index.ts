@@ -11,7 +11,7 @@ export type Profile = {
 export type Article = {
   id: number;
   name: string;
-  url: string;
+  url: string | null;
   overview: string;
   message: string;
   appeal: string;

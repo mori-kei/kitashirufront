@@ -63,7 +63,7 @@ function App() {
           }
         />
         <Route
-          path="articles/:aricleId"
+          path="articles/:articleId"
           element={
             <ProtectedRedirect>
               <ArticlePage />
