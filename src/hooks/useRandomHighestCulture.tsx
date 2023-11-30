@@ -27,6 +27,7 @@ const useHighestCultureCard = (
       case 0:
         return (
           <CultureCard
+            boxshadow="none"
             imageUrl={family}
             imageAlt="家族文化の画像"
             culture="家族文化"

@@ -7,7 +7,6 @@ import bure from "../../images/Bure.png";
 import innovation from "../../images/innovation.png";
 import { Sidebar } from "../Organisms/Sidebar/Sidebar";
 
-
 export const Culture = () => {
   const displaySidebar = useBreakpointValue({ base: "none", lg: "block" }); // lgブレークポイントで表示
   return (

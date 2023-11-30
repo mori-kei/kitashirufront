@@ -2,7 +2,6 @@ import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 
 import { CultureCompareChart } from "../../Molecules/Chart/CultureCompareChart";
 import { Article, Profile } from "../../../types";
-import { Link } from "react-router-dom";
 import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
 import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
 type Props = {
@@ -35,20 +34,28 @@ export const ArticleCard = ({ article, profile }: Props) => {
           userMar={profile.market}
           userBure={profile.beuraucracy}
         />
-        <Text>紫:企業の組織文化 </Text>
-        <Text>緑:あなたの組織文化</Text>
+        <Flex justifyContent={"space-around"} mt={-30}>
+          <Flex alignItems={"center"}>
+            <Box bgColor="#8884d8" w={3} h={3}></Box>
+            <Text>企業 </Text>
+          </Flex>
+          <Flex alignItems={"center"}>
+            <Box bgColor="#82ca9d" w={3} h={3}></Box>
+            <Text>あなた </Text>
+          </Flex>
+        </Flex>
       </Box>
 
-      <Text fontSize="md" mb={4}>
+      <Text fontSize="md" mb={4} color={"blackAlpha.700"}>
         {article.overview}
       </Text>
-      <Text fontSize="md" mb={2}>
+      <Text fontSize="md" mb={2} color="rgba(0, 0, 0, 0.56)">
         資本金: {article.capital_amount}
       </Text>
-      <Text fontSize="md" mb={2}>
+      <Text fontSize="md" mb={2} color="rgba(0, 0, 0, 0.56)">
         売上: {article.earning_amount}
       </Text>
-      <Text fontSize="md" mb={4}>
+      <Text fontSize="md" mb={4} color="rgba(0, 0, 0, 0.56)">
         従業員数: {article.company_size}
       </Text>
       <Flex justify="space-between">

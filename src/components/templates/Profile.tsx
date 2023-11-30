@@ -8,7 +8,18 @@ import { ButtonGroup, Button } from "@chakra-ui/button";
 import axios from "axios";
 import CultureChart from "../Molecules/Chart/CultureChart";
 import { CultureValue, Profile } from "../../types";
-import { Box } from "@chakra-ui/react";
+import {
+  Box,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import { CultureCard } from "../Organisms/card/CultureCard";
 import family from "../../images/family.png";
 import market from "../../images/market.png";
@@ -69,15 +80,7 @@ export const ProfilePage = () => {
 
             <Stack mt="6" spacing="3">
               <Box>
-                <Text>各組織文化の得点</Text>
-                <Text>
-                  家族:{profile?.family}イノベーション:
-                  {profile?.Innovation}マーケット{profile?.market}官僚:
-                  {profile?.beuraucracy}
-                </Text>
-              </Box>
-              <Box>
-                <Text>最も高いのは</Text>
+                {/* <Text>最も高いのは</Text>
                 <Text>
                   {maxCultureKeys?.map((item) => {
                     let displayText = "";
@@ -99,7 +102,36 @@ export const ProfilePage = () => {
                     }
                     return <div key={item}>{displayText}</div>;
                   })}
-                </Text>
+                </Text> */}
+                <TableContainer>
+                  <Table variant="simple">
+                    <TableCaption>あなたの組織文化特性</TableCaption>
+                    <Thead>
+                      <Tr>
+                        <Th>組織文化</Th>
+                        <Th>あなたの得点</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      <Tr>
+                        <Td>家族文化</Td>
+                        <Td>{profile?.family}</Td>
+                      </Tr>
+                      <Tr>
+                        <Td>イノベーション文化</Td>
+                        <Td>{profile?.Innovation}</Td>
+                      </Tr>
+                      <Tr>
+                        <Td>マーケット文化</Td>
+                        <Td>{profile?.market}</Td>
+                      </Tr>
+                      <Tr>
+                        <Td>官僚文化</Td>
+                        <Td>{profile?.beuraucracy}</Td>
+                      </Tr>
+                    </Tbody>
+                  </Table>
+                </TableContainer>
               </Box>
             </Stack>
           </CardBody>

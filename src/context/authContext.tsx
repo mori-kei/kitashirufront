@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { LoginAuth } from "../types";
 
 interface Props {
@@ -72,7 +72,21 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       // データをuserにセットする
       setAuth(res.data);
     } catch (error: any) {
-      console.log(error.response.data);
+      if (axios.isAxiosError(error)) {
+        const err = error as AxiosError; // TypeScriptの型推論を助けるためにキャスト
+        if (err.response) {
+          // サーバーからのレスポンスはあるが、レスポンスがエラー状態の場合
+          console.log("Server Error:", err.response.data);
+        } else if (err.request) {
+          // サーバーへのリクエストが行われなかった場合
+          console.log("Request Error:", err.request);
+        } else {
+          // その他のエラー
+          console.log("Error:", err.message);
+        }
+      } else {
+        console.log("Error:", error.message); // AxiosError型以外のエラーの処理
+      }
       setAuth(null);
     }
   };

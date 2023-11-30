@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
@@ -33,6 +33,31 @@ function App() {
     };
     getCsrfToken();
   }, []);
+  const [isReady, setIsReady] = useState(false); // レンダリングの準備が完了したかどうかの状態
+
+  useEffect(() => {
+    const checkIsLogin = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth`, {
+          withCredentials: true,
+        });
+        // 認証データをセットする（例：setAuth(res.data)）
+        // リダイレクトなどの処理を行う
+
+        // レンダリングの準備が完了したことを示す状態を更新
+        setIsReady(true);
+      } catch (error) {
+        setIsReady(true);
+      }
+    };
+
+    checkIsLogin();
+  }, []);
+
+  if (!isReady) {
+    // レンダリングの準備が完了するまでローディングや他のコンテンツを表示
+    return <div>Loading...</div>;
+  }
   return (
     <BrowserRouter>
       <Routes>
@@ -86,7 +111,15 @@ function App() {
             </ProtectedRedirect>
           }
         />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRedirect>
+              {" "}
+              <ProfilePage />{" "}
+            </ProtectedRedirect>
+          }
+        />
         <Route
           path="/test"
           element={
