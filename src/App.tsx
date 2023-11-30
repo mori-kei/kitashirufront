@@ -47,7 +47,7 @@ function App() {
         // レンダリングの準備が完了したことを示す状態を更新
         setIsReady(true);
       } catch (error) {
-        // エラー処理
+        setIsReady(true);
       }
     };
 
