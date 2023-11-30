@@ -1,4 +1,24 @@
-import { Flex, Box, Button, useToast } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Button,
+  useToast,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Stack,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  Text,
+} from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
 
@@ -11,7 +31,10 @@ import { FirstShowModal } from "../Organisms/Modal/FirstShowModal";
 import { NomalModal } from "../Organisms/Modal/NomalModal";
 import { CultureChart } from "../Molecules/Chart/CultureChart";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useHighestCultureCard from "../../hooks/useRandomHighestCulture";
+import { profile } from "console";
+import { CultureCard } from "../Organisms/card/CultureCard";
 
 const Culturetest = () => {
   const navigate = useNavigate();
@@ -61,6 +84,13 @@ const Culturetest = () => {
   const [resultInno, setResultInno] = useState(0);
   const [resultMar, setResultMar] = useState(0);
   const [resultBure, setResultBure] = useState(0);
+
+  const HighestCultureCard = useHighestCultureCard(
+    resultFam,
+    resultInno,
+    resultMar,
+    resultBure
+  );
   // 合計値の計算 100であるかのチェック
   //Q1
   useEffect(() => {
@@ -339,17 +369,87 @@ const Culturetest = () => {
                   title="診断結果"
                   openText="結果を見る"
                   closeText="戻る"
-                  secondlyActionText="保存する"
-                  onClick={createProfile}
-                  size="full"
+                
+                 
+                  size="2xl"
                   buttonWidth="full"
                   children={
-                    <CultureChart
-                      resultFam={resultFam}
-                      resultInno={resultInno}
-                      resultMar={resultMar}
-                      resultBure={resultBure}
-                    />
+                    <>
+                      <Flex justify="center" align="center">
+                        <Card maxW="md">
+                          <CardBody>
+                            <Text fontSize={"xl"} fontWeight="600">
+                              あなたの組織文化診断結果
+                            </Text>
+
+                            <CultureChart
+                              resultFam={resultFam}
+                              resultInno={resultInno}
+                              resultMar={resultMar}
+                              resultBure={resultBure}
+                            />
+
+                            <Stack mt="6" spacing="3">
+                              <Box>
+                                <TableContainer>
+                                  <Table variant="simple">
+                                    <TableCaption>
+                                      あなたの組織文化特性
+                                    </TableCaption>
+                                    <Thead>
+                                      <Tr>
+                                        <Th>組織文化</Th>
+                                        <Th>あなたの得点</Th>
+                                      </Tr>
+                                    </Thead>
+                                    <Tbody>
+                                      <Tr>
+                                        <Td>家族文化</Td>
+                                        <Td>{resultFam}</Td>
+                                      </Tr>
+                                      <Tr>
+                                        <Td>イノベーション文化</Td>
+                                        <Td>{resultInno}</Td>
+                                      </Tr>
+                                      <Tr>
+                                        <Td>マーケット文化</Td>
+                                        <Td>{resultMar}</Td>
+                                      </Tr>
+                                      <Tr>
+                                        <Td>官僚文化</Td>
+                                        <Td>{resultBure}</Td>
+                                      </Tr>
+                                    </Tbody>
+                                  </Table>
+                                </TableContainer>
+                              </Box>
+                            </Stack>
+                          </CardBody>
+                          <CardBody>
+                            <Text fontWeight="600">
+                              あなたの組織文化の特徴は？？
+                            </Text>
+                            {HighestCultureCard}
+                          </CardBody>
+                          <Divider />
+
+                          <CardFooter>
+                           
+                              <Button
+                                variant="solid"
+                                colorScheme="blue"
+                                onClick={createProfile}
+                                width="full"
+                              >
+                                保存する
+                              </Button>
+
+                             
+                        
+                          </CardFooter>
+                        </Card>
+                      </Flex>
+                    </>
                   }
                 />
               </>
@@ -367,23 +467,6 @@ const Culturetest = () => {
                 結果を見る
               </Button>
             )}
-            <NomalModal
-              title="診断結果"
-              openText="結果を見る"
-              closeText="戻る"
-              secondlyActionText="保存する"
-              size="full"
-              buttonWidth="full"
-              onClick={createProfile}
-              children={
-                <CultureChart
-                  resultFam={resultFam}
-                  resultInno={resultInno}
-                  resultMar={resultMar}
-                  resultBure={resultBure}
-                />
-              }
-            />
           </Box>
         </Box>
       </Flex>
