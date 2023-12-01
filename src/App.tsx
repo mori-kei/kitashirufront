@@ -18,6 +18,7 @@ import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { HomePage } from "./pages/HomePage";
+import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
 
 function App() {
   useEffect(() => {
@@ -58,7 +59,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <ArticleRedirect>
+              <HomePage />
+            </ArticleRedirect>
+          }
+        />
         <Route
           path="/admin/login"
           element={
