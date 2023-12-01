@@ -1,4 +1,11 @@
-import { Card, CardBody, Stack, Heading, Divider } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Stack,
+  Heading,
+  Divider,
+  Flex,
+} from "@chakra-ui/react";
 import React from "react";
 import { Text, Image } from "@chakra-ui/react";
 
@@ -23,7 +30,14 @@ export const CultureCard = ({
   return (
     <Card maxW={maxW} width={width} boxShadow={boxshadow}>
       <CardBody>
-        <Image src={imageUrl} alt={imageAlt} borderRadius="lg" />
+        <Flex justifyContent="center" alignItems="center">
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            borderRadius="lg"
+            height={{ base: "200px", md: "300px" }}
+          />
+        </Flex>
         <Stack mt="6" spacing="3">
           <Heading size="md">{culture}</Heading>
           <Text>{descripion}</Text>
