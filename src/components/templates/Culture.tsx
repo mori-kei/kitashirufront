@@ -17,11 +17,6 @@ export const Culture = () => {
         </Box>
       )}
       <Box w={{ base: "100%", lg: "70%" }}>
-        <Text
-          textAlign={"center"}
-          fontSize={{ base: "22px", md: "30px" }}
-        ></Text>
-
         <Flex
           flexWrap="wrap"
           justifyContent={"space-between"}

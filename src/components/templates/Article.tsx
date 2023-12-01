@@ -24,6 +24,7 @@ import { NomalModal } from "../Organisms/Modal/NomalModal";
 
 import { useNavigate } from "react-router-dom";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
+import { Title } from "../Atoms/Text/Title";
 type Props = {
   profile: Profile | null | undefined;
   article: ArticleType;
@@ -40,15 +41,13 @@ export const Article = ({ profile, article }: Props) => {
   return (
     <Box p={30} pt={0}>
       <Box>
-        <Text
-          fontSize={{ base: "22px", md: "30px" }}
+        <Title
+          text={article.name}
           mb={3}
           padding={5}
           pt={0}
           fontWeight={"bold"}
-        >
-          {article.name}
-        </Text>
+        />
 
         <Flex
           flexWrap="wrap"
@@ -64,10 +63,8 @@ export const Article = ({ profile, article }: Props) => {
             boxShadow="0 0 8px rgba(0,0,0,0.1)"
             bg="white"
           >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb={3}>
-              あなたと企業の比較
-            </Text>
-            {}
+            <Title text="あなたと企業の比較" mb={3} />
+
             <Card border="none" boxShadow={"none"}>
               <CardBody>
                 {profile ? (
@@ -144,9 +141,8 @@ export const Article = ({ profile, article }: Props) => {
             bg="white"
             mt={{ base: 5, md: 0 }}
           >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb={3}>
-              企業の組織文化タイプ
-            </Text>
+            <Title text="企業の組織文化タイプ" mb={3} />
+
             {HighestCultureCard}
 
             <NomalModal
@@ -189,9 +185,8 @@ export const Article = ({ profile, article }: Props) => {
             boxShadow="0 0 8px rgba(0,0,0,0.1)"
             bg="white"
           >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb="4">
-              企業について
-            </Text>
+            <Title text=" 企業について" mb="4" />
+
             <Text mb="2" fontWeight="600">
               事業内容
             </Text>
