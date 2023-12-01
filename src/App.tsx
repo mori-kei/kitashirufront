@@ -5,8 +5,8 @@ import "./App.css";
 import Login from "./pages/Login";
 import axios from "axios";
 import { CsrfToken } from "./types";
+import TopRedirect from "./components/Redirect/TopRedirect";
 import LoginRedirect from "./components/Redirect/LoginRedirect";
-import ProtectedRedirect from "./components/Redirect/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
 import "./CSS/chart.css";
@@ -70,50 +70,50 @@ function App() {
         <Route
           path="/login"
           element={
-            <LoginRedirect>
+            <TopRedirect>
               <Login />
-            </LoginRedirect>
+            </TopRedirect>
           }
         />
         <Route
           path="/articles"
           element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <ArticlesPage />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
         <Route
           path="/articles/:articleId"
           element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <ArticlePage />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
         <Route
           path="/signup"
           element={
-            <LoginRedirect>
+            <TopRedirect>
               <SignUp />
-            </LoginRedirect>
+            </TopRedirect>
           }
         />
 
         <Route
           path="/profile"
           element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <ProfilePage />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
         <Route
           path="/test"
           element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <Culturetest />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
 

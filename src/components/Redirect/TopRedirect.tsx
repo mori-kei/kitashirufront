@@ -5,14 +5,14 @@ import { Navigate } from "react-router-dom";
 interface Props {
   children: ReactNode;
 }
-
-const ProtectedRedirect: FC<Props> = ({ children }) => {
+// ログインしている場合ログインページからトップページへリダイレクト
+const TopRedirect: FC<Props> = ({ children }) => {
   const { auth } = useAuthContext();
   if (auth?.user_type === "user") {
-    return <>{children}</>;
+    return <Navigate to={"/"} />;
   } else {
-    return <Navigate to={"/login"} />;
+    return <>{children}</>;
   }
 };
 
-export default ProtectedRedirect;
+export default TopRedirect;
