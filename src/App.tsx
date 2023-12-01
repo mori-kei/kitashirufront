@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
+
 import Login from "./pages/Login";
 import Protected from "./pages/Protected";
 import axios from "axios";
@@ -21,6 +21,7 @@ import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
 import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   useEffect(() => {
@@ -61,7 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/admin/login"
           element={

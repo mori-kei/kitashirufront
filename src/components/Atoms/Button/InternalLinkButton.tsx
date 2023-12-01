@@ -14,6 +14,8 @@ type Props = {
   colorScheme?: string;
   size?: string;
   flexbasis?: string;
+  m?: string;
+  color?: string;
 };
 type LinkBottonProps = ChakraLinkProps & ReactRouterLinkProps & Props;
 export const InternalLinkButton = (props: LinkBottonProps) => {
@@ -28,11 +30,12 @@ export const InternalLinkButton = (props: LinkBottonProps) => {
       flexBasis={props.flexBasis || "48%"}
     >
       <Button
-    
         variant={props.variant}
         colorScheme={props.colorScheme || "blue"}
         size={props.size || "sm"}
         width="full"
+        m={props.m || "0"}
+        color={props.color}
       >
         {props.label}
       </Button>
