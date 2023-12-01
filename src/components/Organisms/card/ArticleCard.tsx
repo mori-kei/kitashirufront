@@ -4,9 +4,10 @@ import { CultureCompareChart } from "../../Molecules/Chart/CultureCompareChart";
 import { Article, Profile } from "../../../types";
 import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
 import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
+import CultureChart from "../../Molecules/Chart/CultureChart";
 type Props = {
   article: Article;
-  profile: Profile;
+  profile: Profile | null;
 };
 export const ArticleCard = ({ article, profile }: Props) => {
   return (
@@ -24,25 +25,37 @@ export const ArticleCard = ({ article, profile }: Props) => {
         {article.name}
       </Heading>
       <Box textAlign={"center"} mb={50}>
-        <CultureCompareChart
-          resultFam={article.family_point}
-          resultInno={article.innovation_point}
-          resultMar={article.market_point}
-          resultBure={article.bure_point}
-          userFam={profile.family}
-          userInno={profile.Innovation}
-          userMar={profile.market}
-          userBure={profile.beuraucracy}
-        />
+        {profile && article ? (
+          <CultureCompareChart
+            resultFam={article.family_point}
+            resultInno={article.innovation_point}
+            resultMar={article.market_point}
+            resultBure={article.bure_point}
+            userFam={profile.family}
+            userInno={profile.Innovation}
+            userMar={profile.market}
+            userBure={profile.beuraucracy}
+          />
+        ) : (
+          <CultureChart
+            resultFam={article.family_point}
+            resultInno={article.innovation_point}
+            resultMar={article.market_point}
+            resultBure={article.bure_point}
+          />
+        )}
+
         <Flex justifyContent={"space-around"} mt={-30}>
           <Flex alignItems={"center"}>
-            <Box bgColor="#8884d8" w={3} h={3}></Box>
+            <Box bgColor="#82ca9d" w={3} h={3}></Box>
             <Text>企業 </Text>
           </Flex>
-          <Flex alignItems={"center"}>
-            <Box bgColor="#82ca9d" w={3} h={3}></Box>
-            <Text>あなた </Text>
-          </Flex>
+          {profile ? (
+            <Flex alignItems={"center"}>
+              <Box bgColor=" #8884d8" w={3} h={3}></Box>
+              <Text>あなた </Text>
+            </Flex>
+          ) : null}
         </Flex>
       </Box>
 

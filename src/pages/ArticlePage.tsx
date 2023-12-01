@@ -8,15 +8,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 export const ArticlePage = () => {
-  const [profile, setProfile] = useState<Profile>({
-    id: 0,
-    beuraucracy: 0,
-    family: 0,
-    Innovation: 0,
-    market: 0,
-    created_at: new Date(),
-    updated_at: new Date(),
-  });
+  const [profile, setProfile] = useState<Profile | null>();
   const [article, setArticle] = useState<ArticleType>({
     id: 1,
     name: "Sample Company",
@@ -38,9 +30,17 @@ export const ArticlePage = () => {
   });
   const { articleId } = useParams();
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/profile`).then((response) => {
-      setProfile(response.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/profile`)
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((error) => {
+        // エラーが発生した場合の処理
+        console.error("Profile APIリクエストエラー:", error);
+        // エラーを適切に処理するためのコードを追加
+        // エラーをユーザーに通知する、デフォルト値を設定する、などの対応を行う
+      });
   }, []);
   useEffect(() => {
     axios
