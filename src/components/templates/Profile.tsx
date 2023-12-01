@@ -19,7 +19,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { CultureCard } from "../Organisms/card/CultureCard";
+import { CultureCard } from "../Organisms/Card/CultureCard";
 import family from "../../images/family.png";
 import market from "../../images/market.png";
 import bure from "../../images/Bure.png";

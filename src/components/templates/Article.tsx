@@ -24,6 +24,8 @@ import { NomalModal } from "../Organisms/Modal/NomalModal";
 
 import { useNavigate } from "react-router-dom";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
+import { Title } from "../Atoms/Text/Title";
+import { BoxShadow } from "../Atoms/Box/BoxShadow";
 type Props = {
   profile: Profile | null | undefined;
   article: ArticleType;
@@ -40,34 +42,22 @@ export const Article = ({ profile, article }: Props) => {
   return (
     <Box p={30} pt={0}>
       <Box>
-        <Text
-          fontSize={{ base: "22px", md: "30px" }}
+        <Title
+          text={article.name}
           mb={3}
           padding={5}
           pt={0}
           fontWeight={"bold"}
-        >
-          {article.name}
-        </Text>
+        />
 
         <Flex
           flexWrap="wrap"
           justifyContent={"space-between"}
           flexDirection={{ base: "column", md: "row" }}
         >
-          <Box
-            width={{ base: "100%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-          >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb={3}>
-              あなたと企業の比較
-            </Text>
-            {}
+          <BoxShadow width={{ base: "100%", md: "45%" }}>
+            <Title text="あなたと企業の比較" mb={3} />
+
             <Card border="none" boxShadow={"none"}>
               <CardBody>
                 {profile ? (
@@ -81,7 +71,7 @@ export const Article = ({ profile, article }: Props) => {
                       userInno={profile.Innovation}
                       userMar={profile.market}
                       userBure={profile.beuraucracy}
-                    />{" "}
+                    />
                     <Flex justifyContent={"space-around"} mt={-30}>
                       <Flex alignItems={"center"}>
                         <Box bgColor="#82ca9d" w={3} h={3}></Box>
@@ -100,7 +90,8 @@ export const Article = ({ profile, article }: Props) => {
                         <Thead>
                           <Tr>
                             <Th>組織文化</Th>
-                            <Th>あなた</Th> :<Th>企業</Th>
+                            <Th>あなた</Th>
+                            <Th>企業</Th>
                           </Tr>
                         </Thead>
                         <Tbody>
@@ -116,7 +107,7 @@ export const Article = ({ profile, article }: Props) => {
                           </Tr>
                           <Tr>
                             <Td>マーケット文化</Td>
-                            <Td>{profile.market}</Td> :
+                            <Td>{profile.market}</Td>
                             <Td>{article.market_point}</Td>
                           </Tr>
                           <Tr>
@@ -133,20 +124,13 @@ export const Article = ({ profile, article }: Props) => {
                 )}
               </CardBody>
             </Card>
-          </Box>
-          <Box
+          </BoxShadow>
+          <BoxShadow
             width={{ base: "100%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
             mt={{ base: 5, md: 0 }}
           >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb={3}>
-              企業の組織文化タイプ
-            </Text>
+            <Title text="企業の組織文化タイプ" mb={3} />
+
             {HighestCultureCard}
 
             <NomalModal
@@ -172,7 +156,7 @@ export const Article = ({ profile, article }: Props) => {
                 </>
               }
             />
-          </Box>
+          </BoxShadow>
         </Flex>
         <Flex
           flexWrap="wrap"
@@ -180,18 +164,9 @@ export const Article = ({ profile, article }: Props) => {
           flexDirection={{ base: "column", md: "row" }}
           mt={5}
         >
-          <Box
-            width={{ base: "column", md: "65%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-          >
-            <Text fontSize={{ base: "22px", md: "30px" }} mb="4">
-              企業について
-            </Text>
+          <BoxShadow width={{ base: "column", md: "65%" }}>
+            <Title text=" 企業について" mb="4" />
+
             <Text mb="2" fontWeight="600">
               事業内容
             </Text>
@@ -237,7 +212,7 @@ export const Article = ({ profile, article }: Props) => {
                 </Box>
               </>
             ) : null}
-          </Box>
+          </BoxShadow>
           <Box width={{ base: "column", md: "25%" }}>
             <Sidebar></Sidebar>
           </Box>

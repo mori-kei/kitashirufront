@@ -1,19 +1,17 @@
 import {
   Box,
-  ButtonGroup,
-  Center,
   Flex,
   Image,
   Stack,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import React from "react";
-import family from "../../images/family.png";
+
 import mock from "../../images/mock.png";
 import choice from "../../images/choice.png";
 import { InternalLinkButton } from "../Atoms/Button/InternalLinkButton";
 import { ExternalLinkBotton } from "../Atoms/Button/ExternalLinkBotton";
+import { Title } from "../Atoms/Text/Title";
 export const Home = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   return (
@@ -78,9 +76,8 @@ export const Home = () => {
           // SP用の縦並びレイアウト
           <Stack spacing={5}>
             <Box>
-              <Text fontWeight={"bold"} fontSize={{ base: "22px", md: "30px" }}>
-                きたしるの特徴
-              </Text>
+              <Title fontWeight={"bold"} text="きたしるの特徴" />
+
               <Text fontWeight={"bold"}>雰囲気でマッチング</Text>
               <Text mt={5}>
                 事業内容・事業規模・事業内容など、就職活動をする際、考慮しなければならない要素は沢山あります。
@@ -96,9 +93,8 @@ export const Home = () => {
           // PC用の横並びレイアウト
           <Flex justifyContent={"center"}>
             <Box w={{ base: "100%", md: "45%" }}>
-              <Text fontWeight={"bold"} fontSize={{ base: "22px", md: "30px" }}>
-                きたしるの特徴
-              </Text>
+              <Title fontWeight={"bold"} text="きたしるの特徴" />
+
               <Text fontWeight={"bold"}>雰囲気でマッチング</Text>
               <Text mt={5}>
                 事業内容・事業規模・事業内容など、就職活動をする際、考慮しなければならない要素は沢山あります。
@@ -114,13 +110,12 @@ export const Home = () => {
       </Box>
       <Box bgColor={"yellow.100"} p={30}>
         <Box w={{ base: "100%", md: "90%" }} margin="0 auto">
-          <Text
+          <Title
+            text="自分に合った企業を探してみましょう！"
             textAlign={"center"}
-            fontSize={{ base: "22px", md: "30px" }}
             fontWeight={"bold"}
-          >
-            自分に合った企業を探してみましょう！
-          </Text>
+          />
+
           <Box width="50%" margin="0 auto" mt={10}>
             <InternalLinkButton
               variant={"solid"}

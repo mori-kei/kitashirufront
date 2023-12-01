@@ -6,7 +6,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
-import { ArticleCard } from "../Organisms/card/ArticleCard";
+import { ArticleCard } from "../Organisms/Card/ArticleCard";
 import { Article, Profile } from "../../types";
 import { Sidebar } from "../Organisms/Sidebar/Sidebar";
 

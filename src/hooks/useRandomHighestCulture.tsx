@@ -1,4 +1,4 @@
-import { CultureCard } from "../components/Organisms/card/CultureCard";
+import { CultureCard } from "../components/Organisms/Card/CultureCard";
 import family from "../images/family.png";
 import market from "../images/market.png";
 import bure from "../images/Bure.png";

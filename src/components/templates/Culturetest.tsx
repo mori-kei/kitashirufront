@@ -22,7 +22,7 @@ import {
 
 import React, { useEffect, useState } from "react";
 
-import QuestionCard from "../Organisms/card/QuestionCard";
+import QuestionCard from "../Organisms/Card/QuestionCard";
 import { Header } from "../Organisms/Header/Header";
 import { Footer } from "../Organisms/Footer/Footer";
 
@@ -34,7 +34,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import useHighestCultureCard from "../../hooks/useRandomHighestCulture";
 import { profile } from "console";
-import { CultureCard } from "../Organisms/card/CultureCard";
+import { CultureCard } from "../Organisms/Card/CultureCard";
 
 const Culturetest = () => {
   const navigate = useNavigate();
@@ -369,8 +369,6 @@ const Culturetest = () => {
                   title="診断結果"
                   openText="結果を見る"
                   closeText="戻る"
-                
-                 
                   size="2xl"
                   buttonWidth="full"
                   children={
@@ -434,18 +432,14 @@ const Culturetest = () => {
                           <Divider />
 
                           <CardFooter>
-                           
-                              <Button
-                                variant="solid"
-                                colorScheme="blue"
-                                onClick={createProfile}
-                                width="full"
-                              >
-                                保存する
-                              </Button>
-
-                             
-                        
+                            <Button
+                              variant="solid"
+                              colorScheme="blue"
+                              onClick={createProfile}
+                              width="full"
+                            >
+                              保存する
+                            </Button>
                           </CardFooter>
                         </Card>
                       </Flex>
