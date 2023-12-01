@@ -5,7 +5,7 @@ import { Card, CardBody, CardFooter } from "@chakra-ui/card";
 import { Header } from "../Organisms/Header/Header";
 
 import { ButtonGroup, Button } from "@chakra-ui/button";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import CultureChart from "../Molecules/Chart/CultureChart";
 import { CultureValue, Profile } from "../../types";
 import {
@@ -15,7 +15,6 @@ import {
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
   Tr,
@@ -26,6 +25,8 @@ import market from "../../images/market.png";
 import bure from "../../images/Bure.png";
 import innovation from "../../images/innovation.png";
 import { Link } from "react-router-dom";
+import { Footer } from "../Organisms/Footer/Footer";
+import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
 export const ProfilePage = () => {
   const [profile, setProfile] = useState<Profile>();
   const [maxCultureKeys, setMaxCultureKeys] = useState<Array<string>>();
@@ -35,17 +36,33 @@ export const ProfilePage = () => {
     market: 0,
     bure: 0,
   });
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/profile`).then((response) => {
-      setProfile(response.data);
-      // console.log(profile);
-      setCultureValue({
-        family: response.data.family,
-        innovation: response.data.Innovation,
-        market: response.data.market,
-        bure: response.data.beuraucracy,
-      });
-    });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/profile`
+        );
+        setProfile(response.data);
+        setCultureValue({
+          family: response.data.family,
+          Innovation: response.data.Innovation,
+          market: response.data.market,
+          beuraucracy: response.data.beuraucracy,
+        });
+      } catch (error: AxiosError | any) {
+        if (axios.isAxiosError(error)) {
+          setError(error.message);
+        } else {
+          setError("An error occurred");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
@@ -59,7 +76,24 @@ export const ProfilePage = () => {
   useEffect(() => {
     console.log(maxCultureKeys);
   }, [maxCultureKeys]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
+  if (error) {
+    return (
+      <>
+        <Header />
+        <Box p={5}>
+          <RecomendTest
+            title="まだ組織診断結果がありません"
+            text="こちらから診断してみてください"
+          />
+        </Box>
+        <Footer />
+      </>
+    );
+  }
   return (
     <>
       <Header />

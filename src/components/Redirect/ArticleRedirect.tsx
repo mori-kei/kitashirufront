@@ -5,14 +5,11 @@ import { Navigate } from "react-router-dom";
 interface Props {
   children: ReactNode;
 }
-// ログインしていない場合アクセスしたページからloginにリダイレクトする
-const LoginRedirect: FC<Props> = ({ children }) => {
+export const ArticleRedirect: FC<Props> = ({ children }) => {
   const { auth } = useAuthContext();
   if (auth?.user_type === "user") {
-    return <>{children}</>;
+    return <Navigate to={"/articles"} />;
   } else {
-    return <Navigate to={"/login"} />;
+    return <>{children}</>;
   }
 };
-
-export default LoginRedirect;

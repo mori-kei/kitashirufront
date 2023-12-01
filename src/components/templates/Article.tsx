@@ -23,8 +23,9 @@ import { InternalLinkButton } from "../Atoms/Button/InternalLinkButton";
 import { NomalModal } from "../Organisms/Modal/NomalModal";
 
 import { useNavigate } from "react-router-dom";
+import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
 type Props = {
-  profile: Profile;
+  profile: Profile | null | undefined;
   article: ArticleType;
 };
 export const Article = ({ profile, article }: Props) => {
@@ -66,63 +67,70 @@ export const Article = ({ profile, article }: Props) => {
             <Text fontSize={{ base: "22px", md: "30px" }} mb={3}>
               あなたと企業の比較
             </Text>
+            {}
             <Card border="none" boxShadow={"none"}>
               <CardBody>
-                <CultureCompareChart
-                  resultFam={article.family_point}
-                  resultInno={article.innovation_point}
-                  resultMar={article.market_point}
-                  resultBure={article.bure_point}
-                  userFam={profile.family}
-                  userInno={profile.Innovation}
-                  userMar={profile.market}
-                  userBure={profile.beuraucracy}
-                />
-                <Flex justifyContent={"space-around"} mt={-30}>
-                  <Flex alignItems={"center"}>
-                    <Box bgColor="#8884d8" w={3} h={3}></Box>
-                    <Text>企業 </Text>
-                  </Flex>
-                  <Flex alignItems={"center"}>
-                    <Box bgColor="#82ca9d" w={3} h={3}></Box>
-                    <Text>あなた </Text>
-                  </Flex>
-                </Flex>
-
-                <TableContainer>
-                  <Table variant="simple">
-                    <TableCaption>あなたと企業の組織文化の比較</TableCaption>
-                    <Thead>
-                      <Tr>
-                        <Th>組織文化</Th>
-                        <Th>あなた</Th>
-                        <Th>企業</Th>
-                      </Tr>
-                    </Thead>
-                    <Tbody>
-                      <Tr>
-                        <Td>家族文化</Td>
-                        <Td>{profile.family}</Td>
-                        <Td>{article.family_point}</Td>
-                      </Tr>
-                      <Tr>
-                        <Td>イノベーション文化</Td>
-                        <Td>{profile.Innovation}</Td>
-                        <Td>{article.innovation_point}</Td>
-                      </Tr>
-                      <Tr>
-                        <Td>マーケット文化</Td>
-                        <Td>{profile.market}</Td>
-                        <Td>{article.market_point}</Td>
-                      </Tr>
-                      <Tr>
-                        <Td>官僚文化</Td>
-                        <Td>{profile.beuraucracy}</Td>
-                        <Td>{article.bure_point}</Td>
-                      </Tr>
-                    </Tbody>
-                  </Table>
-                </TableContainer>
+                {profile ? (
+                  <>
+                    <CultureCompareChart
+                      resultFam={article.family_point}
+                      resultInno={article.innovation_point}
+                      resultMar={article.market_point}
+                      resultBure={article.bure_point}
+                      userFam={profile.family}
+                      userInno={profile.Innovation}
+                      userMar={profile.market}
+                      userBure={profile.beuraucracy}
+                    />{" "}
+                    <Flex justifyContent={"space-around"} mt={-30}>
+                      <Flex alignItems={"center"}>
+                        <Box bgColor="#82ca9d" w={3} h={3}></Box>
+                        <Text>企業 </Text>
+                      </Flex>
+                      <Flex alignItems={"center"}>
+                        <Box bgColor="#8884d8" w={3} h={3}></Box>
+                        <Text>あなた </Text>
+                      </Flex>
+                    </Flex>
+                    <TableContainer>
+                      <Table variant="simple">
+                        <TableCaption>
+                          あなたと企業の組織文化の比較
+                        </TableCaption>
+                        <Thead>
+                          <Tr>
+                            <Th>組織文化</Th>
+                            <Th>あなた</Th> :<Th>企業</Th>
+                          </Tr>
+                        </Thead>
+                        <Tbody>
+                          <Tr>
+                            <Td>家族文化</Td>
+                            <Td>{profile.family}</Td>
+                            <Td>{article.family_point}</Td>
+                          </Tr>
+                          <Tr>
+                            <Td>イノベーション文化</Td>
+                            <Td>{profile.Innovation}</Td>
+                            <Td>{article.innovation_point}</Td>
+                          </Tr>
+                          <Tr>
+                            <Td>マーケット文化</Td>
+                            <Td>{profile.market}</Td> :
+                            <Td>{article.market_point}</Td>
+                          </Tr>
+                          <Tr>
+                            <Td>官僚文化</Td>
+                            <Td>{profile.beuraucracy}</Td>
+                            <Td>{article.bure_point}</Td>
+                          </Tr>
+                        </Tbody>
+                      </Table>
+                    </TableContainer>
+                  </>
+                ) : (
+                  <RecomendTest title="組織診断を行うと見られるようになります" />
+                )}
               </CardBody>
             </Card>
           </Box>

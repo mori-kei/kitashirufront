@@ -11,7 +11,7 @@ import { Article, Profile } from "../../types";
 import { Sidebar } from "../Organisms/Sidebar/Sidebar";
 
 type Props = {
-  profile: Profile;
+  profile: Profile | null;
   articles: Article[];
 };
 export const Articles = ({ profile, articles }: Props) => {

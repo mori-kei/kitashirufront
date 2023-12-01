@@ -30,11 +30,15 @@ export const Header: React.FC = () => {
             <HoverLink to="/test" mr={4}>
               組織診断
             </HoverLink>
+
             <HoverLink to="/articles" mr={4}>
               企業を見る
             </HoverLink>
             <HoverLink to="/culture" mr={4}>
               組織文化について
+            </HoverLink>
+            <HoverLink to="/profile" mr={4}>
+              プロフィール
             </HoverLink>
             <Link mr={4} color={"blackAlpha.700"} onClick={logout} href="/">
               <Button>ログアウト</Button>
@@ -44,6 +48,9 @@ export const Header: React.FC = () => {
           <Box>
             <Link mr={4} color={"blackAlpha.700"} href="/login">
               <Button>ログイン</Button>
+            </Link>
+            <Link mr={4} href="/signup">
+              <Button colorScheme="blue">新規登録</Button>
             </Link>
           </Box>
         )}

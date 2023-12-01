@@ -3,18 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Login from "./pages/Login";
-import Protected from "./pages/Protected";
 import axios from "axios";
 import { CsrfToken } from "./types";
+import TopRedirect from "./components/Redirect/TopRedirect";
 import LoginRedirect from "./components/Redirect/LoginRedirect";
-import ProtectedRedirect from "./components/Redirect/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
-import { Header } from "./components/Organisms/Header/Header";
 import "./CSS/chart.css";
-import { NomalModal } from "./components/Organisms/Modal/NomalModal";
-import { Footer } from "./components/Organisms/Footer/Footer";
-import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
+
 import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
@@ -22,6 +18,7 @@ import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { HomePage } from "./pages/HomePage";
+import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
 
 function App() {
   useEffect(() => {
@@ -62,7 +59,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <ArticleRedirect>
+              <HomePage />
+            </ArticleRedirect>
+          }
+        />
         <Route
           path="/admin/login"
           element={
@@ -71,95 +75,56 @@ function App() {
             </AuthRedirect>
           }
         />
-        <Route path="/header" element={<Header />} />
         <Route
           path="/login"
           element={
-            <LoginRedirect>
+            <TopRedirect>
               <Login />
+            </TopRedirect>
+          }
+        />
+        <Route
+          path="/articles"
+          element={
+            <LoginRedirect>
+              <ArticlesPage />
             </LoginRedirect>
           }
         />
         <Route
-          path="articles"
+          path="/articles/:articleId"
           element={
-            <ProtectedRedirect>
-              <ArticlesPage />
-            </ProtectedRedirect>
-          }
-        />
-        <Route
-          path="articles/:articleId"
-          element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <ArticlePage />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
         <Route
           path="/signup"
           element={
-            <LoginRedirect>
+            <TopRedirect>
               <SignUp />
-            </LoginRedirect>
+            </TopRedirect>
           }
         />
-        <Route
-          path="/protected"
-          element={
-            <ProtectedRedirect>
-              <Protected />
-            </ProtectedRedirect>
-          }
-        />
+
         <Route
           path="/profile"
           element={
-            <ProtectedRedirect>
-              {" "}
-              <ProfilePage />{" "}
-            </ProtectedRedirect>
+            <LoginRedirect>
+              <ProfilePage />
+            </LoginRedirect>
           }
         />
         <Route
           path="/test"
           element={
-            <ProtectedRedirect>
+            <LoginRedirect>
               <Culturetest />
-            </ProtectedRedirect>
+            </LoginRedirect>
           }
         />
-        <Route path="/footer" element={<Footer />} />
-        <Route
-          path="/modal"
-          element={
-            <NomalModal
-              title="this is modal"
-              openText="open"
-              closeText="close"
-              secondlyActionText="action"
-              size="full"
-              children={<> これはチルドレンです</>}
-              onClick={() => {}}
-              buttonWidth="full"
-            />
-          }
-        />
-        <Route
-          path="/showmodal"
-          element={
-            <FirstShowModal
-              title="this is modal"
-              openText="open"
-              closeText="close"
-              secondlyActionText="action"
-              size="full"
-              children={<> これはチルドレンです</>}
-              onClick={() => {}}
-              buttonWidth="full"
-            />
-          }
-        />
+
         <Route path="/culture" element={<CulturePage />} />
       </Routes>
     </BrowserRouter>
