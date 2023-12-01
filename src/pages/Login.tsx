@@ -13,6 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
+import { HoverLink } from "../components/Atoms/Link/HoverLink";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,8 +62,9 @@ const Login = () => {
                 align={"start"}
                 justify={"space-between"}
               >
-                <Checkbox>Remember me</Checkbox>
-                <Text color={"blue.400"}>Forgot password?</Text>
+                <HoverLink to={"/signup"}>
+                  <Text color={"blue.400"}>新規登録はこちら</Text>
+                </HoverLink>
               </Stack>
               <Button
                 bg={"blue.400"}
@@ -72,7 +74,7 @@ const Login = () => {
                 }}
                 onClick={handleSubmit}
               >
-                LogIn
+                ログイン
               </Button>
             </Stack>
           </Stack>
