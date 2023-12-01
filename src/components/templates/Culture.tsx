@@ -6,6 +6,7 @@ import market from "../../images/market.png";
 import bure from "../../images/Bure.png";
 import innovation from "../../images/innovation.png";
 import { Sidebar } from "../Organisms/Sidebar/Sidebar";
+import { BoxShadow } from "../Atoms/Box/BoxShadow";
 
 export const Culture = () => {
   const displaySidebar = useBreakpointValue({ base: "none", lg: "block" }); // lgブレークポイントで表示
@@ -22,15 +23,7 @@ export const Culture = () => {
           justifyContent={"space-between"}
           flexDirection={{ base: "column", md: "row" }}
         >
-          <Box
-            width={{ base: "98%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-          >
+          <BoxShadow width={{ base: "98%", md: "45%" }}>
             <CultureCard
               imageUrl={family}
               imageAlt="家族文化の画像"
@@ -38,17 +31,8 @@ export const Culture = () => {
               descripion="人々が多くのものを共有する非常にフレンドリーな職場。組織は人材が成長することの長期的なメリットを重視し、一体感とやる気を非常に重視する。顧客への心配りと人々への気遣いがあることが組織の成功と定義される。"
               boxshadow="none"
             />
-          </Box>
-          <Box
-            width={{ base: "98%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-            mt={{ base: 5, md: 0 }}
-          >
+          </BoxShadow>
+          <BoxShadow width={{ base: "98%", md: "45%" }} mt={{ base: 5, md: 0 }}>
             <CultureCard
               imageUrl={innovation}
               imageAlt="イノベーション文化の画像"
@@ -56,17 +40,8 @@ export const Culture = () => {
               descripion="ダイナミックであり、起業家精神にあふれクリエイティブな職場。時代の最先端にいることが重視される。組織が長期的に重視するのは成長と新しい資源の獲得である。ユニークかつ新しい商品やサービスを生みだすことが成功を意味する。"
               boxshadow="none"
             />
-          </Box>
-          <Box
-            width={{ base: "98%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-            mt={{ base: 5, md: 5 }}
-          >
+          </BoxShadow>
+          <BoxShadow width={{ base: "98%", md: "45%" }} mt={{ base: 5, md: 5 }}>
             <CultureCard
               imageUrl={market}
               imageAlt="マーケット文化の画像"
@@ -74,17 +49,8 @@ export const Culture = () => {
               descripion="過程ではなく、結果を重視する組織。競争力のある行動や測定可能なゴール・ 目標を達成することが長期的関心事である。競合他社に勝てるような製品・サービス価格の設定や 市場シェアリーダーシップが組織の成功と定義される。"
               boxshadow="none"
             />
-          </Box>
-          <Box
-            width={{ base: "98%", md: "45%" }}
-            padding={5}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="0 0 8px rgba(0,0,0,0.1)"
-            bg="white"
-            mt={{ base: 5, md: 5 }}
-          >
+          </BoxShadow>
+          <BoxShadow width={{ base: "98%", md: "45%" }} mt={{ base: 5, md: 5 }}>
             <CultureCard
               imageUrl={bure}
               imageAlt="官僚文化の画像"
@@ -92,7 +58,7 @@ export const Culture = () => {
               descripion="非常に形式的で構造化された職場。決められた手 順や手続きが人々の活動を規定する。信頼できる製品・サービスの供給、スムーズな日程調整、そして低コストが組織の成功と定義される。"
               boxshadow="none"
             />
-          </Box>
+          </BoxShadow>
         </Flex>
       </Box>
     </Flex>
