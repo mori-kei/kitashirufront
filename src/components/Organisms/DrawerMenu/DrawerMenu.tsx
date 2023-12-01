@@ -44,6 +44,7 @@ export const DrawerMenu = () => {
                     <HoverLink to="/test">組織診断</HoverLink>
                     <HoverLink to="/articles">企業を見る</HoverLink>
                     <HoverLink to="/culture">組織文化について</HoverLink>
+                    <HoverLink to="/profile">プロフィール</HoverLink>
                     <HoverLink to="/" onClick={logout}>
                       ログアウト
                     </HoverLink>
