@@ -1,6 +1,6 @@
 import { Box, Flex, Grid, Text, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
-import { CultureCard } from "../Organisms/card/CultureCard";
+import { CultureCard } from "../Organisms/Card/CultureCard";
 import family from "../../images/family.png";
 import market from "../../images/market.png";
 import bure from "../../images/Bure.png";
