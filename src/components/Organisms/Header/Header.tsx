@@ -49,6 +49,9 @@ export const Header: React.FC = () => {
             <Link mr={4} color={"blackAlpha.700"} href="/login">
               <Button>ログイン</Button>
             </Link>
+            <Link mr={4} href="/signup">
+              <Button colorScheme="blue">新規登録</Button>
+            </Link>
           </Box>
         )}
       </Box>
