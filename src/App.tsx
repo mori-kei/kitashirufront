@@ -3,18 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Login from "./pages/Login";
-import Protected from "./pages/Protected";
 import axios from "axios";
 import { CsrfToken } from "./types";
 import LoginRedirect from "./components/Redirect/LoginRedirect";
 import ProtectedRedirect from "./components/Redirect/ProtectedRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
-import { Header } from "./components/Organisms/Header/Header";
 import "./CSS/chart.css";
-import { NomalModal } from "./components/Organisms/Modal/NomalModal";
-import { Footer } from "./components/Organisms/Footer/Footer";
-import { FirstShowModal } from "./components/Organisms/Modal/FirstShowModal";
+
 import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/AdminLogin";
 import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
@@ -71,7 +67,6 @@ function App() {
             </AuthRedirect>
           }
         />
-        <Route path="/header" element={<Header />} />
         <Route
           path="/login"
           element={
@@ -81,7 +76,7 @@ function App() {
           }
         />
         <Route
-          path="articles"
+          path="/articles"
           element={
             <ProtectedRedirect>
               <ArticlesPage />
@@ -89,7 +84,7 @@ function App() {
           }
         />
         <Route
-          path="articles/:articleId"
+          path="/articles/:articleId"
           element={
             <ProtectedRedirect>
               <ArticlePage />
@@ -104,20 +99,12 @@ function App() {
             </LoginRedirect>
           }
         />
-        <Route
-          path="/protected"
-          element={
-            <ProtectedRedirect>
-              <Protected />
-            </ProtectedRedirect>
-          }
-        />
+
         <Route
           path="/profile"
           element={
             <ProtectedRedirect>
-              {" "}
-              <ProfilePage />{" "}
+              <ProfilePage />
             </ProtectedRedirect>
           }
         />
@@ -129,37 +116,7 @@ function App() {
             </ProtectedRedirect>
           }
         />
-        <Route path="/footer" element={<Footer />} />
-        <Route
-          path="/modal"
-          element={
-            <NomalModal
-              title="this is modal"
-              openText="open"
-              closeText="close"
-              secondlyActionText="action"
-              size="full"
-              children={<> これはチルドレンです</>}
-              onClick={() => {}}
-              buttonWidth="full"
-            />
-          }
-        />
-        <Route
-          path="/showmodal"
-          element={
-            <FirstShowModal
-              title="this is modal"
-              openText="open"
-              closeText="close"
-              secondlyActionText="action"
-              size="full"
-              children={<> これはチルドレンです</>}
-              onClick={() => {}}
-              buttonWidth="full"
-            />
-          }
-        />
+
         <Route path="/culture" element={<CulturePage />} />
       </Routes>
     </BrowserRouter>
