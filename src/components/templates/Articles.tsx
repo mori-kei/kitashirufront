@@ -35,7 +35,7 @@ export const Articles = ({ profile, articles }: Props) => {
 
       <Flex justifyContent={"space-between"} p={30} pt={0}>
         {displaySidebar && (
-          <Box w={{ base: "0", lg: "25%" }}>
+          <Box w={{ base: "0", lg: "25%" }} display={displaySidebar}>
             <Sidebar />
           </Box>
         )}
