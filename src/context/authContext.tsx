@@ -37,6 +37,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       // データをuserにセットする
       setAuth(res.data);
     } catch (error: any) {
+      alert(error.response.data.message);
       console.log(error.response.data);
     }
   };
@@ -61,6 +62,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         login(email, password);
       })
       .catch((error) => {
+        alert(error.response.data.message);
         console.error("Error", error);
       });
   };
