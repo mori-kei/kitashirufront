@@ -12,7 +12,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useAuthContext } from "../context/authContext";
+import { useAuthContext } from "../../context/authContext";
 export const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
