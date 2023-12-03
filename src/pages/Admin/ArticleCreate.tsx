@@ -32,9 +32,13 @@ export const ArticleCreate = () => {
   const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
-      axios.post(`${process.env.REACT_APP_API_URL}/admin/article`, article, {
-        withCredentials: true,
-      });
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/admin/article`,
+        article,
+        {
+          withCredentials: true,
+        }
+      );
       alert("保存されました");
       navigate("/admin/articles/create");
     } catch (error) {}
