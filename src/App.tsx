@@ -12,13 +12,16 @@ import Culturetest from "./components/templates/Culturetest";
 import "./CSS/chart.css";
 
 import { ProfilePage } from "./components/templates/Profile";
-import { AdminLogin } from "./pages/AdminLogin";
-import AuthRedirect from "./components/Redirect/AdminLoginRedirect";
+import { AdminLogin } from "./pages/Admin/AdminLogin";
+
 import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { HomePage } from "./pages/HomePage";
 import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
+import { AdminDashbordRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
+import { DashBordPage } from "./pages/Admin/DashBordPage";
+import { ArticleCreate } from "./pages/Admin/ArticleCreate";
 
 function App() {
   useEffect(() => {
@@ -70,11 +73,13 @@ function App() {
         <Route
           path="/admin/login"
           element={
-            <AuthRedirect>
+            <AdminDashbordRedirect>
               <AdminLogin />
-            </AuthRedirect>
+            </AdminDashbordRedirect>
           }
         />
+        <Route path="/admin/dashbord" element={<DashBordPage />} />
+        <Route path="/admin/articles/create" element={<ArticleCreate />} />
         <Route
           path="/login"
           element={
