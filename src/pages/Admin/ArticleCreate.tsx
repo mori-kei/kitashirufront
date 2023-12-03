@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Article, SendArticle } from "../../types";
 import axios from "axios";
 import {
   FormControl,
@@ -11,30 +10,40 @@ import {
   Stack,
   Button,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-export const ArticleCreate = () => {
-  const [article, setArticle] = useState<SendArticle>({
-    name: "",
-    url: null,
-    overview: "",
-    message: "",
-    appeal: "",
-    capital_amount: 0,
-    earning_amount: 0,
-    company_size: 0,
-    address: "",
-    is_published: true,
-    family_point: 0,
-    innovation_point: 0,
-    market_point: 0,
-    bure_point: 0,
-  });
 
+export const ArticleCreate = () => {
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [overview, setOverview] = useState("");
+  const [message, setMessage] = useState("");
+  const [appeal, setAppeal] = useState("");
+  const [capital_amount, setCapital_amount] = useState(0);
+  const [earning_amount, setEarning_amount] = useState(0);
+  const [company_size, setCompany_size] = useState(0);
+  const [address, setAddress] = useState("");
+  const [family_point, setFamily_point] = useState(0);
+  const [innovation_point, setInnovation_point] = useState(0);
+  const [market_point, setMarket_point] = useState(0);
+  const [bure_point, setBure_point] = useState(0);
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/admin/article`,
-        article,
+        {
+          name: name,
+          url: url,
+          overview: overview,
+          message: message,
+          appeal: appeal,
+          capital_amount: capital_amount,
+          earning_amount: earning_amount,
+          company_size: company_size,
+          address: address,
+          family_point: family_point,
+          innovation_point: innovation_point,
+          market_point: market_point,
+          bure_point: bure_point,
+        },
         {
           withCredentials: true,
         }
@@ -46,13 +55,6 @@ export const ArticleCreate = () => {
     }
   };
 
-  console.log(article);
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setArticle({ ...article, [name]: value });
-  };
   return (
     <>
       <Box p={30}>
@@ -62,8 +64,10 @@ export const ArticleCreate = () => {
             <Input
               type="text"
               name="name"
-              value={article.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             />
           </FormControl>
 
@@ -72,8 +76,8 @@ export const ArticleCreate = () => {
             <Input
               type="text"
               name="url"
-              value={article.url || ""}
-              onChange={handleChange}
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
             />
           </FormControl>
 
@@ -81,16 +85,16 @@ export const ArticleCreate = () => {
             <FormLabel>主な事業内容</FormLabel>
             <Textarea
               name="overview"
-              value={article.overview}
-              onChange={handleChange}
+              value={overview}
+              onChange={(e) => setOverview(e.target.value)}
             />
           </FormControl>
           <FormControl>
             <FormLabel>採用メッセージ</FormLabel>
             <Textarea
               name="message"
-              value={article.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </FormControl>
 
@@ -98,8 +102,8 @@ export const ArticleCreate = () => {
             <FormLabel>自社事業の魅力</FormLabel>
             <Textarea
               name="appeal"
-              value={article.appeal}
-              onChange={handleChange}
+              value={appeal}
+              onChange={(e) => setAppeal(e.target.value)}
             />
           </FormControl>
 
@@ -108,8 +112,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="capital_amount"
-              value={article.capital_amount}
-              onChange={handleChange}
+              value={capital_amount}
+              onChange={(e) => setCapital_amount(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -118,8 +122,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="earning_amount"
-              value={article.earning_amount}
-              onChange={handleChange}
+              value={earning_amount}
+              onChange={(e) => setEarning_amount(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -128,8 +132,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="company_size"
-              value={article.company_size}
-              onChange={handleChange}
+              value={company_size}
+              onChange={(e) => setCompany_size(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -138,8 +142,8 @@ export const ArticleCreate = () => {
             <Input
               type="text"
               name="address"
-              value={article.address}
-              onChange={handleChange}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </FormControl>
 
@@ -148,8 +152,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="family_point"
-              value={article.family_point}
-              onChange={handleChange}
+              value={family_point}
+              onChange={(e) => setFamily_point(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -158,8 +162,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="innovation_point"
-              value={article.innovation_point}
-              onChange={handleChange}
+              value={innovation_point}
+              onChange={(e) => setInnovation_point(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -168,8 +172,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="market_point"
-              value={article.market_point}
-              onChange={handleChange}
+              value={market_point}
+              onChange={(e) => setMarket_point(parseFloat(e.target.value))}
             />
           </FormControl>
 
@@ -178,8 +182,8 @@ export const ArticleCreate = () => {
             <Input
               type="number"
               name="bure_point"
-              value={article.bure_point}
-              onChange={handleChange}
+              value={bure_point}
+              onChange={(e) => setBure_point(parseFloat(e.target.value))}
             />
           </FormControl>
         </Stack>

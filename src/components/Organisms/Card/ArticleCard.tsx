@@ -52,7 +52,7 @@ export const ArticleCard = ({ article, profile }: Props) => {
           </Flex>
           {profile ? (
             <Flex alignItems={"center"}>
-              <Box bgColor=" #8884d8" w={3} h={3}></Box>
+              <Box bgColor=" #8884d8 " w={3} h={3}></Box>
               <Text>あなた </Text>
             </Flex>
           ) : null}
