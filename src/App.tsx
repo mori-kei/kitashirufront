@@ -78,8 +78,9 @@ function App() {
             </AdminDashbordRedirect>
           }
         />
-        <Route path="/admin/dashbord" element={<DashBordPage />} />
         <Route path="/admin/articles/create" element={<ArticleCreate />} />
+        <Route path="/admin/dashbord" element={<DashBordPage />} />
+
         <Route
           path="/login"
           element={
