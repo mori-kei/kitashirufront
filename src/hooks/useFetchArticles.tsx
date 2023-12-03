@@ -9,14 +9,20 @@ const useFetchArticles = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/articles`
+          `${process.env.REACT_APP_API_URL}/articles`,
+          {
+            withCredentials: true,
+          }
         );
         console.log(response.data);
         setArticles(response.data);
       } catch (error) {
         // エラーが発生した場合はログに出力するか、必要に応じて処理する
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/articles/random`
+          `${process.env.REACT_APP_API_URL}/articles/random`,
+          {
+            withCredentials: true,
+          }
         );
         console.error("An error occurred while fetching articles:", error);
         console.log(response.data);
