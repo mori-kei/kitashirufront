@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import {
   Flex,
   Box,
@@ -14,14 +14,26 @@ import {
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
+import axios from "axios";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signup } = useAuthContext();
+  const [csrfState, setCsrfState] = useState<string | null>(null);
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     signup(email, password);
   };
+  useEffect(() => {
+    const res = axios.defaults.headers.common["X-CSRF-Token"];
+
+    if (typeof res === "string") {
+      setCsrfState(res);
+    }
+  }, []);
+
+  const csrf = axios.defaults.headers.common["X-CSRF-Token"];
+
   return (
     <Flex
       minH={"100vh"}
@@ -32,6 +44,8 @@ const SignUp = () => {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>登録して始めましょう</Heading>
+          <Text>テスト用① {csrfState}</Text>
+          <Text>テスト用②{csrf}</Text>
         </Stack>
         <Box
           rounded={"lg"}

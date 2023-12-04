@@ -57,7 +57,11 @@ export const AuthProvider: FC<Props> = ({ children }) => {
   };
   const signup = (email: string, password: string) => {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/signup`, { email, password })
+      .post(
+        `${process.env.REACT_APP_API_URL}/signup`,
+        { email, password },
+        { withCredentials: true }
+      )
       .then((response) => {
         login(email, password);
       })
