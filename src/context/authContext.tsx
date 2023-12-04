@@ -55,12 +55,20 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       console.log(error.response.data);
     }
   };
+
   const signup = (email: string, password: string) => {
+    const csrf = axios.defaults.headers.common["X-CSRF-Token"];
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/signup`,
         { email, password },
-        { withCredentials: true }
+        {
+          headers: {
+            "X-CSRF-Token": csrf,
+            "Content-Type": "application/json", // 例としてJSONを指定しています
+            // 他の必要なヘッダーも追加できます
+          },
+        }
       )
       .then((response) => {
         login(email, password);
