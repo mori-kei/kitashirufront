@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import axios, { AxiosError } from "axios";
+import axios, { AxiosError, AxiosHeaderValue } from "axios";
 import { LoginAuth } from "../types";
 
 interface Props {
@@ -18,7 +18,11 @@ interface AuthContextType {
   setAuth: React.Dispatch<React.SetStateAction<LoginAuth | null>>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  signup: (email: string, password: string) => void;
+  signup: (
+    email: string,
+    password: string,
+    csrf: AxiosHeaderValue | undefined
+  ) => void;
   adminLogin: (email: string, password: string) => Promise<void>;
 }
 
@@ -56,8 +60,11 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const signup = (email: string, password: string) => {
-    const csrf = axios.defaults.headers.common["X-CSRF-Token"];
+  const signup = (
+    email: string,
+    password: string,
+    csrf: AxiosHeaderValue | undefined
+  ) => {
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/signup`,
