@@ -28,11 +28,13 @@ function App() {
     axios.defaults.withCredentials = true;
     const getCsrfToken = async () => {
       const { data } = await axios.get<CsrfToken>(
-        `${process.env.REACT_APP_API_URL}/csrf`
+        `${process.env.REACT_APP_API_URL}/csrf`,
+        {
+          withCredentials: true,
+        }
       );
       axios.defaults.headers.common["X-CSRF-Token"] = data.csrf_token;
     };
-   
     getCsrfToken();
   }, []);
   const [isReady, setIsReady] = useState(false); // レンダリングの準備が完了したかどうかの状態
