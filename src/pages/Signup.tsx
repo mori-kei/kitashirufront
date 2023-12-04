@@ -22,7 +22,7 @@ const SignUp = () => {
   const [csrfState, setCsrfState] = useState<string | null>(null);
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    signup(email, password, csrf);
+    signup(email, password);
   };
   useEffect(() => {
     const res = axios.defaults.headers.common["X-CSRF-Token"];
