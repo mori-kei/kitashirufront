@@ -32,6 +32,7 @@ function App() {
       );
       axios.defaults.headers.common["X-CSRF-Token"] = data.csrf_token;
     };
+   
     getCsrfToken();
   }, []);
   const [isReady, setIsReady] = useState(false); // レンダリングの準備が完了したかどうかの状態
