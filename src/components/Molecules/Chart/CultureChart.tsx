@@ -52,8 +52,8 @@ export const CultureChart = ({
           <Radar
             name="あなたの組織文化" // そのチャートが誰のデータか指定(チャート下にここで指定した値が表示される)
             dataKey="A" // 表示する値と対応するdata内のキー
-            stroke="#8884d8" // レーダーの外枠の色
-            fill="#8884d8" // レーダー内の色
+            stroke="#82ca9d" // レーダーの外枠の色
+            fill="#82ca9d" // レーダー内の色
             fillOpacity={0.6} // レーダー内の色の濃さ(1にすると濃さMAX)
           />
         </RadarChart>
