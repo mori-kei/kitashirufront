@@ -16,21 +16,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 export const Home = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const [csrfState, setCsrfState] = useState<string | null>(null);
 
-  useEffect(() => {
-    const res = axios.defaults.headers.common["X-CSRF-Token"];
-
-    if (typeof res === "string") {
-      setCsrfState(res);
-    }
-  }, []);
-
-  const csrf = axios.defaults.headers.common["X-CSRF-Token"];
   return (
     <Box>
-      <Text>テスト用① {csrfState}</Text>
-      <Text>テスト用②{csrf}</Text>
       <Flex gap={10} justifyContent={"center"} p={30}>
         <Box textAlign={"center"} w={{ base: "100%", md: "45%" }}>
           <Text fontWeight="600" fontSize={{ base: "24px", md: "30px" }}>
