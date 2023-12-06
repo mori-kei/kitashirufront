@@ -20,7 +20,7 @@ import { ArticlePage } from "./pages/ArticlePage";
 import { HomePage } from "./pages/HomePage";
 import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
 import { AdminDashbordRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
-import { DashBordPage } from "./pages/Admin/DashBordPage";
+import { DashbordPage } from "./pages/Admin/DashbordPage";
 import { ArticleCreate } from "./pages/Admin/ArticleCreate";
 
 function App() {
@@ -82,7 +82,7 @@ function App() {
           }
         />
         <Route path="/admin/articles/create" element={<ArticleCreate />} />
-        <Route path="/admin/dashbord" element={<DashBordPage />} />
+        <Route path="/dashbord" element={<DashbordPage />} />
 
         <Route
           path="/login"
