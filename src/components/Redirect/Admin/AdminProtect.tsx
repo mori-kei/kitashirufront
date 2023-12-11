@@ -1,16 +1,16 @@
-import React, { ReactNode, FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { useAuthContext } from "../../../context/authContext";
 import { Navigate } from "react-router-dom";
 
 interface Props {
   children: ReactNode;
 }
-//ログインしている場合、ダッシュボードへ遷移させる
-export const AdminDashbordRedirect: FC<Props> = ({ children }) => {
+export const AdminProtect: FC<Props> = ({ children }) => {
   const { auth } = useAuthContext();
+
   if (auth?.user_type === "admin") {
-    return <Navigate to={"/dashbord"} />;
-  } else {
     return <>{children}</>;
+  } else {
+    return <Navigate to={"/"} />;
   }
 };
