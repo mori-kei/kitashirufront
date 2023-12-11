@@ -4,12 +4,12 @@ import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { HoverLink } from "../Atoms/Link/HoverLink";
 
-export const Dashbord = () => {
+export const Dashboard = () => {
   return (
     <Box p={30}>
       <BoxShadow p={30}>
         <Flex flexDirection={{ base: "column", md: "row" }}>
-          <HoverLink to={"/dashbord/articles"}>
+          <HoverLink to={"/dashboard/articles"}>
             <BoxShadow>
               <Flex align={"center"}>
                 <Text mr={2}>企業の記事</Text>

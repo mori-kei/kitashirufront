@@ -19,10 +19,10 @@ import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { HomePage } from "./pages/HomePage";
 import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
-import { AdminDashbordRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
-import { DashbordPage } from "./pages/Admin/DashbordPage";
+import { AdminDashboardRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
+import { DashboardPage } from "./pages/Admin/DashbordPage";
 import { ArticleCreate } from "./pages/Admin/ArticleCreate";
-import { DashbordArticlesPage } from "./pages/Admin/DashbordArticlesPage";
+import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 
 function App() {
   useEffect(() => {
@@ -77,14 +77,14 @@ function App() {
         <Route
           path="/admin/login"
           element={
-            <AdminDashbordRedirect>
+            <AdminDashboardRedirect>
               <AdminLogin />
-            </AdminDashbordRedirect>
+            </AdminDashboardRedirect>
           }
         />
         <Route path="/admin/articles/create" element={<ArticleCreate />} />
-        <Route path="/dashbord" element={<DashbordPage />} />
-        <Route path="/dashbord/articles" element={<DashbordArticlesPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard/articles" element={<DashboardArticlesPage />} />
         <Route
           path="/login"
           element={

@@ -6,10 +6,10 @@ interface Props {
   children: ReactNode;
 }
 //ログインしている場合、ダッシュボードへ遷移させる
-export const AdminDashbordRedirect: FC<Props> = ({ children }) => {
+export const AdminDashboardRedirect: FC<Props> = ({ children }) => {
   const { auth } = useAuthContext();
   if (auth?.user_type === "admin") {
-    return <Navigate to={"/dashbord"} />;
+    return <Navigate to={"/dashboard"} />;
   } else {
     return <>{children}</>;
   }

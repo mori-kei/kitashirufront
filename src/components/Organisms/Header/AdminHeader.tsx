@@ -27,7 +27,7 @@ export const AdminHeader: React.FC = () => {
       <Box display={{ base: "none", md: "block" }}>
         {auth ? (
           <Box>
-            <HoverLink to="/dashbord/articles" mr={4}>
+            <HoverLink to="/dashboard/articles" mr={4}>
               企業の記事
             </HoverLink>
             <Link mr={4} color={"blackAlpha.700"} onClick={logout} href="/">
