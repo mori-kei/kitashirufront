@@ -9,9 +9,15 @@ import {
   Box,
   Stack,
   Button,
+  Text,
 } from "@chakra-ui/react";
+import { AdminHeader } from "../../components/Organisms/Header/AdminHeader";
+import { Footer } from "../../components/Organisms/Footer/Footer";
+import { StatusBadge } from "../../components/Atoms/Badge/StatusBadge";
+import { useNavigate } from "react-router-dom";
+import { Title } from "../../components/Atoms/Text/Title";
 
-export const ArticleCreate = () => {
+export const ArticleCreatePage = () => {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [overview, setOverview] = useState("");
@@ -25,6 +31,12 @@ export const ArticleCreate = () => {
   const [innovation_point, setInnovation_point] = useState(0);
   const [market_point, setMarket_point] = useState(0);
   const [bure_point, setBure_point] = useState(0);
+  const [is_published, setIs_published] = useState(false);
+  const navigate = useNavigate();
+  const handleToggle = () => {
+    setIs_published((prev) => !prev);
+  };
+  console.log(is_published);
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
@@ -43,6 +55,7 @@ export const ArticleCreate = () => {
           innovation_point: innovation_point,
           market_point: market_point,
           bure_point: bure_point,
+          is_published: is_published,
         },
         {
           withCredentials: true,
@@ -50,6 +63,7 @@ export const ArticleCreate = () => {
       );
       console.log("Response:", response.data); // レスポンスをログに出力
       alert("保存されました");
+      navigate("/dashboard/articles");
     } catch (error) {
       alert("失敗しました");
     }
@@ -57,7 +71,9 @@ export const ArticleCreate = () => {
 
   return (
     <>
+      <AdminHeader />
       <Box p={30}>
+        <Title text="新規作成" fontWeight={"bold"} mb={10} />
         <Stack spacing={4}>
           <FormControl>
             <FormLabel>企業名</FormLabel>
@@ -186,9 +202,18 @@ export const ArticleCreate = () => {
               onChange={(e) => setBure_point(parseFloat(e.target.value))}
             />
           </FormControl>
+          <FormControl>
+            <FormLabel>記事の表示</FormLabel>
+
+            <Button onClick={handleToggle}>変更</Button>
+            <StatusBadge status={is_published} />
+          </FormControl>
         </Stack>
-        <Button onClick={handleSubmit}>送信</Button>
+        <Button onClick={handleSubmit} mt={20}>
+          保存する
+        </Button>
       </Box>
+      <Footer />
     </>
   );
 };

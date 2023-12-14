@@ -4,6 +4,9 @@ import { Footer } from "../../components/Organisms/Footer/Footer";
 import { DashboardArticles } from "../../components/templates/DashboardArticles";
 import { Article } from "../../types";
 import axios from "axios";
+import { Box, Button } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 export const DashboardArticlesPage = () => {
   const [articles, setArticles] = useState<Article[]>();
@@ -25,6 +28,13 @@ export const DashboardArticlesPage = () => {
   return (
     <>
       <AdminHeader />
+      <Box p={30} pb={0}>
+        <Link to="/dashboard/articles/create">
+          <Button colorScheme="teal" variant="outline">
+            新規追加 <AddIcon ml={3} />
+          </Button>
+        </Link>
+      </Box>
       {articles ? <DashboardArticles articles={articles} /> : null}
 
       <Footer />

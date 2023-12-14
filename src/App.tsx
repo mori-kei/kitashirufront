@@ -21,8 +21,9 @@ import { HomePage } from "./pages/HomePage";
 import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
 import { AdminDashboardRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
 import { DashboardPage } from "./pages/Admin/DashbordPage";
-import { ArticleCreate } from "./pages/Admin/ArticleCreate";
+import {  ArticleCreatePage } from "./pages/Admin/ArticleCreatePage";
 import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
+import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
 
 function App() {
   useEffect(() => {
@@ -82,7 +83,8 @@ function App() {
             </AdminDashboardRedirect>
           }
         />
-        <Route path="/admin/articles/create" element={<ArticleCreate />} />
+        <Route path="/dashboard/articles/create" element={<ArticleCreatePage  />} />
+        <Route path="/dashboard/articles/:articleId" element={<ArticleEditPage  />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/dashboard/articles" element={<DashboardArticlesPage />} />
         <Route
