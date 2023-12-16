@@ -9,7 +9,7 @@ export const AdminProtect: FC<Props> = ({ children }) => {
   const { auth } = useAuthContext();
 
   if (auth?.user_type === "admin") {
-    return <>{children}</>;
+    return <>{children}</>; 
   } else {
     return <Navigate to={"/"} />;
   }

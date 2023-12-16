@@ -21,9 +21,10 @@ import { HomePage } from "./pages/HomePage";
 import { ArticleRedirect } from "./components/Redirect/ArticleRedirect";
 import { AdminDashboardRedirect } from "./components/Redirect/Admin/AdminDashbordRedirect";
 import { DashboardPage } from "./pages/Admin/DashbordPage";
-import {  ArticleCreatePage } from "./pages/Admin/ArticleCreatePage";
+import { ArticleCreatePage } from "./pages/Admin/ArticleCreatePage";
 import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
+import { AdminProtect } from "./components/Redirect/Admin/AdminProtect";
 
 function App() {
   useEffect(() => {
@@ -83,10 +84,38 @@ function App() {
             </AdminDashboardRedirect>
           }
         />
-        <Route path="/dashboard/articles/create" element={<ArticleCreatePage  />} />
-        <Route path="/dashboard/articles/:articleId" element={<ArticleEditPage  />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/dashboard/articles" element={<DashboardArticlesPage />} />
+        <Route
+          path="/dashboard/articles/create"
+          element={
+            <AdminProtect>
+              <ArticleCreatePage />
+            </AdminProtect>
+          }
+        />
+        <Route
+          path="/dashboard/articles/:articleId"
+          element={
+            <AdminProtect>
+              <ArticleEditPage />
+            </AdminProtect>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <AdminProtect>
+              <DashboardPage />
+            </AdminProtect>
+          }
+        />
+        <Route
+          path="/dashboard/articles"
+          element={
+            <AdminProtect>
+              <DashboardArticlesPage />
+            </AdminProtect>
+          }
+        />
         <Route
           path="/login"
           element={
