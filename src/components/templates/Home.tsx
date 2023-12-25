@@ -42,13 +42,13 @@ export const Home = () => {
                   size={"md"}
                 />
               </Box>
-              <Box mt={5}>
+              {/* <Box mt={5}>
                 <ExternalLinkBotton
                   label="採用担当者様はこちら"
                   to={"https://www.hgu.jp/"}
                   size={"md"}
                 />
-              </Box>
+              </Box> */}
             </Box>
           ) : (
             // PC用の横並びレイアウト
@@ -60,13 +60,13 @@ export const Home = () => {
                   size={"lg"}
                 />
               </Box>
-              <Box>
+              {/* <Box>
                 <ExternalLinkBotton
                   label="採用担当者様はこちら"
                   to={"https://www.hgu.jp/"}
                   size={"lg"}
                 />
-              </Box>
+              </Box> */}
             </Flex>
           )}
         </Box>
