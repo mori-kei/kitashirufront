@@ -25,7 +25,7 @@ const useFetchArticles = () => {
           }
         );
         console.error("An error occurred while fetching articles:", error);
-        console.log(response.data);
+       
         setArticles(response.data); // エラー時は記事をnullに設定するか、必要に応じて空の配列などを設定する
       }
     };

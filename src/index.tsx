@@ -6,13 +6,25 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AuthProvider } from "./context/authContext";
 import theme from "./theme/theme";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <ChakraProvider theme={theme}>
     <AuthProvider>
-      <App />
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            きたしる 北海道の企業と学生を雰囲気でマッチングする就活サービス
+          </title>
+          <meta
+            name="description"
+            content="きたしるは北海道向け就活サービスです。組織文化に基づいた自分に合った企業が分かります。 "
+          />
+        </Helmet>
+        <App />
+      </HelmetProvider>
     </AuthProvider>
   </ChakraProvider>
 );
