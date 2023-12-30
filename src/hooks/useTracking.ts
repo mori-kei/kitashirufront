@@ -11,11 +11,18 @@ const usePageTracking = () => {
   }, []);
 
   useEffect(() => {
-    // ページトラッキングを送信する
-    ReactGA.send({
-      hitType: "pageview",
-      page: location.pathname + location.search,
-    });
+    const trackingTimer = setTimeout(() => {
+      // ページビュートラッキングを送信する
+      ReactGA.send({
+        hitType: "pageview",
+        page: location.pathname + location.search,
+      });
+    }, 500); // 500ms の遅延を設ける（適宜調整可能）
+
+    // クリーンアップ
+    return () => {
+      clearTimeout(trackingTimer);
+    };
   }, [location]);
 };
 
