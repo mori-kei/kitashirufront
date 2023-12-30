@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
 import { Title } from "../Atoms/Text/Title";
 import { BoxShadow } from "../Atoms/Box/BoxShadow";
+import { usePageTracking } from "../../hooks/useTracking";
 
 type Props = {
   profile: Profile | null | undefined;
@@ -47,6 +48,7 @@ export const Article = ({ profile, article }: Props) => {
       label: companyName,
     });
   };
+
   return (
     <Box p={30} pt={0}>
       <Box>
