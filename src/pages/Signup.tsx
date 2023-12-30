@@ -26,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
     signup(email, password);
   };
-  usePageTracking();
+ 
   return (
     <Flex
       minH={"100vh"}
