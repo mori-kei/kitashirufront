@@ -7,7 +7,7 @@ const usePageTracking = () => {
 
   useEffect(() => {
     // Google Analytics 測定 ID を入力して設定
-    ReactGA.initialize("G-R69LC9ZY4G");
+    ReactGA.initialize("G-EHVS14B8ME");
     ReactGA.send({
       hitType: "pageview",
       // アクセスしたパス (pathname) とクエリ文字列 (search) を送付する (必要に応じて編集する)

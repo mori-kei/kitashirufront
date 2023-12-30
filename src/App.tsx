@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-
 import Login from "./pages/Login";
 import axios from "axios";
 import { CsrfToken } from "./types";
@@ -23,6 +22,7 @@ import { ArticleCreatePage } from "./pages/Admin/ArticleCreatePage";
 import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
 import { AdminProtect } from "./components/Redirect/Admin/AdminProtect";
+import { usePageTracking } from "./hooks/useTracking";
 
 
 function App() {
