@@ -27,6 +27,7 @@ import innovation from "../../images/innovation.png";
 import { Link } from "react-router-dom";
 import { Footer } from "../Organisms/Footer/Footer";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
+import { HeadBlock } from "../Blocks/HeadBlock";
 export const ProfilePage = () => {
   const [profile, setProfile] = useState<Profile>();
   const [maxCultureKeys, setMaxCultureKeys] = useState<Array<string>>();
@@ -83,6 +84,7 @@ export const ProfilePage = () => {
   if (error) {
     return (
       <>
+        <HeadBlock title="組織文化の診断結果 - きたしる" path="profile" />
         <Header />
         <Box p={5}>
           <RecomendTest
@@ -96,6 +98,7 @@ export const ProfilePage = () => {
   }
   return (
     <>
+      <HeadBlock title="組織文化の診断結果 - きたしる" path="profile" />
       <Header />
       <Flex justify="center" align="center">
         <Card maxW="md">

@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   useToast,
-  
   Card,
   CardBody,
   CardFooter,
@@ -35,6 +34,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useHighestCultureCard from "../../hooks/useRandomHighestCulture";
 import { profile } from "console";
 import { CultureCard } from "../Organisms/Card/CultureCard";
+import { HeadBlock } from "../Blocks/HeadBlock";
 
 const Culturetest = () => {
   const navigate = useNavigate();
@@ -249,6 +249,7 @@ const Culturetest = () => {
   };
   return (
     <>
+      <HeadBlock title="組織文化を診断 - きたしる" path="test" />
       <Header />
 
       <Flex justifyContent="center" mb="50px">
