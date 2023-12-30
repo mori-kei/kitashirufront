@@ -23,7 +23,6 @@ const Login = () => {
     e.preventDefault();
     login(email, password);
   };
-  usePageTracking();
   return (
     <Flex
       minH={"100vh"}
