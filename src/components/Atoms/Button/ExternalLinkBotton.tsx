@@ -30,13 +30,13 @@ export const ExternalLinkBotton = (props: LinkBottonProps) => {
       {...props}
       fontWeight={600}
       flexBasis={props.flexBasis || "48%"}
+      onClick={props.onClick} //
     >
       <Button
         variant={props.variant || "outline"}
         colorScheme={props.colorScheme || "blue"}
         size={props.size || "sm"}
         width="full"
-        onClick={props.onClick} //
       >
         {props.label}
         <ExternalLinkIcon ml={2} />
