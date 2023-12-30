@@ -16,6 +16,7 @@ type Props = {
   colorScheme?: string;
   size?: string;
   flexbasis?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 type LinkBottonProps = ChakraLinkProps & ReactRouterLinkProps & Props;
 
@@ -35,6 +36,7 @@ export const ExternalLinkBotton = (props: LinkBottonProps) => {
         colorScheme={props.colorScheme || "blue"}
         size={props.size || "sm"}
         width="full"
+        onClick={props.onClick} //
       >
         {props.label}
         <ExternalLinkIcon ml={2} />

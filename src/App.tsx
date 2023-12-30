@@ -10,10 +10,8 @@ import LoginRedirect from "./components/Redirect/LoginRedirect";
 import SignUp from "./pages/Signup";
 import Culturetest from "./components/templates/Culturetest";
 import "./CSS/chart.css";
-
 import { ProfilePage } from "./components/templates/Profile";
 import { AdminLogin } from "./pages/Admin/AdminLogin";
-
 import { ArticlesPage } from "./pages/ArticlesPage";
 import { CulturePage } from "./pages/CulturePage";
 import { ArticlePage } from "./pages/ArticlePage";
@@ -26,7 +24,9 @@ import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
 import { AdminProtect } from "./components/Redirect/Admin/AdminProtect";
 
+
 function App() {
+
   useEffect(() => {
     axios.defaults.withCredentials = true;
     const getCsrfToken = async () => {
@@ -60,7 +60,7 @@ function App() {
 
     checkIsLogin();
   }, []);
-
+  
   if (!isReady) {
     // レンダリングの準備が完了するまでローディングや他のコンテンツを表示
     return <div>Loading...</div>;

@@ -15,6 +15,8 @@ import {
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
 import axios from "axios";
+import { usePageTracking } from "../hooks/useTracking";
+
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
     signup(email, password);
   };
-
+  usePageTracking();
   return (
     <Flex
       minH={"100vh"}

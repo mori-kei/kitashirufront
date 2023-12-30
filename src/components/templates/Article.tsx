@@ -14,6 +14,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import ReactGA from "react-ga4";
 import { CultureCompareChart } from "../Molecules/Chart/CultureCompareChart";
 import { Sidebar } from "../Organisms/Sidebar/Sidebar";
 import { ExternalLinkBotton } from "../Atoms/Button/ExternalLinkBotton";
@@ -21,11 +22,11 @@ import { Article as ArticleType, Profile } from "../../types";
 import useHighestCultureCard from "../../hooks/useRandomHighestCulture";
 import { InternalLinkButton } from "../Atoms/Button/InternalLinkButton";
 import { NomalModal } from "../Organisms/Modal/NomalModal";
-
 import { useNavigate } from "react-router-dom";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
 import { Title } from "../Atoms/Text/Title";
 import { BoxShadow } from "../Atoms/Box/BoxShadow";
+
 type Props = {
   profile: Profile | null | undefined;
   article: ArticleType;
@@ -39,6 +40,13 @@ export const Article = ({ profile, article }: Props) => {
     article.market_point,
     article.bure_point
   );
+  const trackHpButtonClick = (companyName: string) => {
+    ReactGA.event({
+      category: "HomepageButton",
+      action: "HPClick",
+      label: companyName,
+    });
+  };
   return (
     <Box p={30} pt={0}>
       <Box>
@@ -208,7 +216,11 @@ export const Article = ({ profile, article }: Props) => {
                   ></iframe>
                 </Box>
                 <Box mt={10}>
-                  <ExternalLinkBotton label="企業のHPを見る" to={article.url} />
+                  <ExternalLinkBotton
+                    onClick={() => trackHpButtonClick(article.name)}
+                    label="企業のHPを見る"
+                    to={article.url}
+                  />
                 </Box>
               </>
             ) : null}

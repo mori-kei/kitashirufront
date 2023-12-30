@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
+import { usePageTracking } from "../hooks/useTracking";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +23,7 @@ const Login = () => {
     e.preventDefault();
     login(email, password);
   };
+  usePageTracking();
   return (
     <Flex
       minH={"100vh"}
