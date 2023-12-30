@@ -22,7 +22,7 @@ import { ArticleCreatePage } from "./pages/Admin/ArticleCreatePage";
 import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
 import { AdminProtect } from "./components/Redirect/Admin/AdminProtect";
-import { usePageTracking } from "./hooks/useTracking";
+
 
 
 function App() {
