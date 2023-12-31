@@ -214,7 +214,7 @@ export const Article = ({ profile, article }: Props) => {
                     title="企業Webサイト"
                     src={article.url}
                     width="100%"
-                    height={isMobile ? "300px" : "500px"}
+                    height={isMobile ? "300px" : "400px"}
                   ></iframe>
                 </Box>
                 <Box mt={10}>
