@@ -5,11 +5,20 @@ import { Article, Profile } from "../../../types";
 import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
 import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
 import CultureChart from "../../Molecules/Chart/CultureChart";
+import ReactGA from "react-ga4";
 type Props = {
   article: Article;
   profile: Profile | null;
 };
 export const ArticleCard = ({ article, profile }: Props) => {
+  const trackHpButtonClick = (companyName: string) => {
+    ReactGA.event({
+      category: "HomepageButton",
+      action: "HPClick",
+      label: companyName,
+    });
+  };
+
   return (
     <Box
       borderWidth="1px"
@@ -77,7 +86,11 @@ export const ArticleCard = ({ article, profile }: Props) => {
           label="もっと詳しく"
         />
         {article.url ? (
-          <ExternalLinkBotton to={article.url} label="企業HP" />
+          <ExternalLinkBotton
+            onClick={() => trackHpButtonClick(article.name)}
+            to={article.url}
+            label="企業HP"
+          />
         ) : null}
       </Flex>
     </Box>

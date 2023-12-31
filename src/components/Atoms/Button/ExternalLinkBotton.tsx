@@ -31,6 +31,8 @@ export const ExternalLinkBotton = (props: LinkBottonProps) => {
       fontWeight={600}
       flexBasis={props.flexBasis || "48%"}
       onClick={props.onClick} //
+      target="_blank" // 新しいタブで開くための設定
+      rel="noopener noreferrer" // セキュリティ上の理由で必要
     >
       <Button
         variant={props.variant || "outline"}
