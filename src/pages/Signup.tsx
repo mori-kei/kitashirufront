@@ -15,7 +15,7 @@ import {
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
 import axios from "axios";
-import { usePageTracking } from "../hooks/useTracking";
+
 import { HeadBlock } from "../components/Blocks/HeadBlock";
 
 const SignUp = () => {

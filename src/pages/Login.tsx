@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
-import { usePageTracking } from "../hooks/useTracking";
+
 import { HeadBlock } from "../components/Blocks/HeadBlock";
 const Login = () => {
   const [email, setEmail] = useState("");
