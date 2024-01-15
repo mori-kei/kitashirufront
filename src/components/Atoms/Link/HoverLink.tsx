@@ -7,8 +7,7 @@ import {
   LinkProps as ReactRouterLinkProps,
 } from "react-router-dom";
 
-type HoverLinkProps = ChakraLinkProps &
-  ReactRouterLinkProps
+type HoverLinkProps = ChakraLinkProps & ReactRouterLinkProps;
 
 export const HoverLink = (props: HoverLinkProps) => (
   <ChakraLink

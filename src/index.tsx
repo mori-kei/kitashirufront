@@ -8,7 +8,7 @@ import { AuthProvider } from "./context/authContext";
 import theme from "./theme/theme";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <ChakraProvider theme={theme}>
@@ -26,7 +26,7 @@ root.render(
         <App />
       </HelmetProvider>
     </AuthProvider>
-  </ChakraProvider>
+  </ChakraProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function

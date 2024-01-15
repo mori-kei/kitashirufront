@@ -1,4 +1,3 @@
-
 import React from "react";
 
 type Props = {
@@ -20,9 +19,8 @@ export const NoteCard = ({ src }: Props) => {
           margin: "10px 0px",
           position: "static",
           visibility: "visible",
-          height:"200px"
+          height: "200px",
         }}
-        
       ></iframe>
     </div>
   );

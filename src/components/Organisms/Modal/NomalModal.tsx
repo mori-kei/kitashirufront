@@ -38,7 +38,9 @@ export const NomalModal = ({
   return (
     <>
       <Button width={buttonWidth} onClick={onOpen}>
-        {infoBool === true ? <InfoOutlineIcon color={"blue.600"} mr={2}/> : null}{" "}
+        {infoBool === true ? (
+          <InfoOutlineIcon color={"blue.600"} mr={2} />
+        ) : null}{" "}
         {openText}
       </Button>
 

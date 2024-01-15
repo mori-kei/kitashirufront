@@ -38,7 +38,7 @@ export const Article = ({ profile, article }: Props) => {
     article.family_point,
     article.innovation_point,
     article.market_point,
-    article.bure_point
+    article.bure_point,
   );
   const trackHpButtonClick = (companyName: string) => {
     ReactGA.event({

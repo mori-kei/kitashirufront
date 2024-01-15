@@ -9,7 +9,7 @@ export const useFetchArticle = (articleId: string | undefined) => {
     const fetchArticle = async () => {
       try {
         const response = await axios.get<Article>(
-          `${process.env.REACT_APP_API_URL}/articles/${articleId}`
+          `${process.env.REACT_APP_API_URL}/articles/${articleId}`,
         );
         setArticle(response.data);
       } catch (error) {

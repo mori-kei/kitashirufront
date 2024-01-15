@@ -89,7 +89,7 @@ const Culturetest = () => {
     resultFam,
     resultInno,
     resultMar,
-    resultBure
+    resultBure,
   );
   // 合計値の計算 100であるかのチェック
   //Q1
@@ -98,7 +98,7 @@ const Culturetest = () => {
       parseInt(q01Fam) +
         parseInt(q01Inno) +
         parseInt(q01Mar) +
-        parseInt(q01Bure)
+        parseInt(q01Bure),
     );
 
     if (q01Sum === 100) {
@@ -114,7 +114,7 @@ const Culturetest = () => {
       parseInt(q02Fam) +
         parseInt(q02Inno) +
         parseInt(q02Mar) +
-        parseInt(q02Bure)
+        parseInt(q02Bure),
     );
 
     if (q02Sum === 100) {
@@ -129,7 +129,7 @@ const Culturetest = () => {
       parseInt(q03Fam) +
         parseInt(q03Inno) +
         parseInt(q03Mar) +
-        parseInt(q03Bure)
+        parseInt(q03Bure),
     );
 
     if (q03Sum === 100) {
@@ -145,7 +145,7 @@ const Culturetest = () => {
       parseInt(q04Fam) +
         parseInt(q04Inno) +
         parseInt(q04Mar) +
-        parseInt(q04Bure)
+        parseInt(q04Bure),
     );
 
     if (q04Sum === 100) {
@@ -161,7 +161,7 @@ const Culturetest = () => {
       parseInt(q05Fam) +
         parseInt(q05Inno) +
         parseInt(q05Mar) +
-        parseInt(q05Bure)
+        parseInt(q05Bure),
     );
 
     if (q05Sum === 100) {
@@ -176,7 +176,7 @@ const Culturetest = () => {
       parseInt(q06Fam) +
         parseInt(q06Inno) +
         parseInt(q06Mar) +
-        parseInt(q06Bure)
+        parseInt(q06Bure),
     );
 
     if (q06Sum === 100) {
@@ -241,7 +241,7 @@ const Culturetest = () => {
           Innovation: resultInno,
           market: resultMar,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       alert("保存されました");
       navigate("/articles");

@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 
 import { CultureCompareChart } from "../../Molecules/Chart/CultureCompareChart";
 import { Article, Profile } from "../../../types";

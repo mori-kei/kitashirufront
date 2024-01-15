@@ -64,7 +64,7 @@ export const ArticleEditPage = () => {
         },
         {
           withCredentials: true,
-        }
+        },
       );
       console.log("Response:", response.data); // レスポンスをログに出力
       alert("保存されました");
@@ -77,7 +77,7 @@ export const ArticleEditPage = () => {
     const fetchArticle = async () => {
       try {
         const response = await axios.get<Article>(
-          `${process.env.REACT_APP_API_URL}/articles/${articleId}`
+          `${process.env.REACT_APP_API_URL}/articles/${articleId}`,
         );
         setArticle(response.data);
 
@@ -130,7 +130,7 @@ export const ArticleEditPage = () => {
       <AdminHeader />
 
       <Box p={30}>
-        <Title fontWeight={"bold"}text="編集" mb={10} />
+        <Title fontWeight={"bold"} text="編集" mb={10} />
         <Stack spacing={4}>
           <FormControl>
             <FormLabel>企業名</FormLabel>

@@ -59,7 +59,7 @@ export const ArticleCreatePage = () => {
         },
         {
           withCredentials: true,
-        }
+        },
       );
       console.log("Response:", response.data); // レスポンスをログに出力
       alert("保存されました");
