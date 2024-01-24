@@ -1,11 +1,10 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import {
   Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
-  Checkbox,
   Stack,
   Button,
   Heading,
@@ -14,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuthContext } from "../context/authContext";
 import { HoverLink } from "../components/Atoms/Link/HoverLink";
-import axios from "axios";
+
 
 import { HeadBlock } from "../components/Blocks/HeadBlock";
 
