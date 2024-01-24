@@ -7,7 +7,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  
   Button,
 } from "@chakra-ui/react";
 import { useDefaultShow } from "../../../hooks/useDefaultShow";
@@ -47,7 +46,7 @@ export const FirstShowModal = ({
           <ModalBody>{children}</ModalBody>
 
           <ModalFooter>
-            <Button  colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
               {closeText}
             </Button>
             {onClick ? (

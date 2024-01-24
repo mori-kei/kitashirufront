@@ -1,4 +1,3 @@
-import { VFC } from "react";
 import { Helmet } from "react-helmet-async";
 
 type Props = {

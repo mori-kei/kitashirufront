@@ -2,26 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Article } from "../../types";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { Header } from "../../components/Organisms/Header/Header";
 import { AdminHeader } from "../../components/Organisms/Header/AdminHeader";
 import { Footer } from "../../components/Organisms/Footer/Footer";
 import {
   Box,
   Button,
-  Flex,
   FormControl,
   FormLabel,
   Input,
   Stack,
-  Switch,
-  Text,
   Textarea,
 } from "@chakra-ui/react";
 import { StatusBadge } from "../../components/Atoms/Badge/StatusBadge";
 import { Title } from "../../components/Atoms/Text/Title";
 
 export const ArticleEditPage = () => {
-  const [article, setArticle] = useState<Article>();
   const { articleId } = useParams();
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
@@ -79,7 +74,6 @@ export const ArticleEditPage = () => {
         const response = await axios.get<Article>(
           `${process.env.REACT_APP_API_URL}/articles/${articleId}`
         );
-        setArticle(response.data);
 
         // Set the initial values from the fetched article data
         if (response.data) {
@@ -130,7 +124,7 @@ export const ArticleEditPage = () => {
       <AdminHeader />
 
       <Box p={30}>
-        <Title fontWeight={"bold"}text="編集" mb={10} />
+        <Title fontWeight={"bold"} text="編集" mb={10} />
         <Stack spacing={4}>
           <FormControl>
             <FormLabel>企業名</FormLabel>

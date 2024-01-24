@@ -14,7 +14,7 @@ export const DashboardArticlesPage = () => {
     const fetchAllArticles = async () => {
       try {
         const response = await axios.get<Article[]>(
-          `${process.env.REACT_APP_API_URL}/articles/all`
+          `${process.env.REACT_APP_API_URL}/articles/all`,
         );
         setArticles(response.data);
         console.log(response.data);

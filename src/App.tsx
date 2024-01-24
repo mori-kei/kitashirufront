@@ -23,10 +23,7 @@ import { DashboardArticlesPage } from "./pages/Admin/DashbordArticlesPage";
 import { ArticleEditPage } from "./pages/Admin/ArticleEditPage";
 import { AdminProtect } from "./components/Redirect/Admin/AdminProtect";
 
-
-
 function App() {
-
   useEffect(() => {
     axios.defaults.withCredentials = true;
     const getCsrfToken = async () => {
@@ -34,7 +31,7 @@ function App() {
         `${process.env.REACT_APP_API_URL}/csrf`,
         {
           withCredentials: true,
-        }
+        },
       );
       axios.defaults.headers.common["X-CSRF-Token"] = data.csrf_token;
     };
@@ -60,7 +57,7 @@ function App() {
 
     checkIsLogin();
   }, []);
-  
+
   if (!isReady) {
     // レンダリングの準備が完了するまでローディングや他のコンテンツを表示
     return <div>Loading...</div>;

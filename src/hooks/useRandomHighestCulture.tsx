@@ -7,14 +7,14 @@ const useHighestCultureCard = (
   family_point: number,
   innovation_point: number,
   market_point: number,
-  bure_point: number
+  bure_point: number,
 ) => {
   const determineRandomComponent = () => {
     const max = Math.max(
       family_point,
       innovation_point,
       market_point,
-      bure_point
+      bure_point,
     );
     const indexes: number[] = [];
     if (family_point === max) indexes.push(0);

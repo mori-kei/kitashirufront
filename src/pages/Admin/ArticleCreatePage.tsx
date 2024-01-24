@@ -9,7 +9,6 @@ import {
   Box,
   Stack,
   Button,
-  Text,
 } from "@chakra-ui/react";
 import { AdminHeader } from "../../components/Organisms/Header/AdminHeader";
 import { Footer } from "../../components/Organisms/Footer/Footer";
@@ -59,7 +58,7 @@ export const ArticleCreatePage = () => {
         },
         {
           withCredentials: true,
-        }
+        },
       );
       console.log("Response:", response.data); // レスポンスをログに出力
       alert("保存されました");

@@ -32,7 +32,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/login`,
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       // データをuserにセットする
       setAuth(res.data);
@@ -46,7 +46,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/admin/login`,
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       // データをauthにセットする
       setAuth(res.data);
@@ -61,7 +61,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
       .post(
         `${process.env.REACT_APP_API_URL}/signup`,
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .then((response) => {
         login(email, password);

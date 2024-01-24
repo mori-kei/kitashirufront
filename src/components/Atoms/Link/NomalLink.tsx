@@ -10,9 +10,5 @@ import {
 type NomalLinkProps = ChakraLinkProps & ReactRouterLinkProps;
 
 export const NomalLink = (props: NomalLinkProps) => {
-  return (
-    <ChakraLink as={ReactRouterLink} {...props}>
-      
-    </ChakraLink>
-  );
+  return <ChakraLink as={ReactRouterLink} {...props}></ChakraLink>;
 };

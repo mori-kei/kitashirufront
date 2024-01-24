@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Header } from "../components/Organisms/Header/Header";
 import { Articles } from "../components/templates/Articles";
 import { Footer } from "../components/Organisms/Footer/Footer";
-import { RecomendTest } from "../components/Organisms/Recomend/RecomendTest";
-import { Box } from "@chakra-ui/react";
 import useFetchProfile from "../hooks/useFetchProfile";
 import useFetchArticles from "../hooks/useFetchArticles";
 import { BoxShadow } from "../components/Atoms/Box/BoxShadow";
