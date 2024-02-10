@@ -41,6 +41,7 @@ export type Article = {
   bure_point: number;
   created_at: string;
   updated_at: string;
+  is_liked: boolean;
 };
 
 export type CsrfToken = {

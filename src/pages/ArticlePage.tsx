@@ -12,6 +12,7 @@ export const ArticlePage = () => {
   const { articleId } = useParams();
   const article = useFetchArticle(articleId); // カスタムフックの使用
   const profile = useFetchProfile();
+  console.log(article);
   usePageTracking();
   return (
     <>

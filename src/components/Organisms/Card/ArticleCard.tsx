@@ -6,6 +6,9 @@ import { ExternalLinkBotton } from "../../Atoms/Button/ExternalLinkBotton";
 import { InternalLinkButton } from "../../Atoms/Button/InternalLinkButton";
 import CultureChart from "../../Molecules/Chart/CultureChart";
 import ReactGA from "react-ga4";
+import { useState } from "react";
+import axios from "axios";
+import { LikeButton } from "../../Atoms/Button/LikeButton";
 type Props = {
   article: Article;
   profile: Profile | null;
@@ -18,7 +21,19 @@ export const ArticleCard = ({ article, profile }: Props) => {
       label: companyName,
     });
   };
-
+  const [isLiked, setLiked] = useState(article.is_liked);
+  const handleLikeClick = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/favorites/${article.id}`,
+        { withCredentials: true }
+      );
+      setLiked(!isLiked);
+    } catch (error: any) {
+      alert(error.response.data.message);
+      console.log(error.response.data);
+    }
+  };
   return (
     <Box
       borderWidth="1px"
@@ -30,9 +45,12 @@ export const ArticleCard = ({ article, profile }: Props) => {
       maxW="800px"
       mx="auto"
     >
-      <Heading as="h2" size="md" mb={3}>
-        {article.name}
-      </Heading>
+    
+        <Heading as="h2" size="md" mb={3}>
+          {article.name}
+        </Heading>
+        <LikeButton isLiked={isLiked} onClick={handleLikeClick} />
+     
       <Box textAlign={"center"} mb={50}>
         {profile && article ? (
           <CultureCompareChart

@@ -26,6 +26,8 @@ import { useNavigate } from "react-router-dom";
 import { RecomendTest } from "../Organisms/Recomend/RecomendTest";
 import { Title } from "../Atoms/Text/Title";
 import { BoxShadow } from "../Atoms/Box/BoxShadow";
+import { LikeButton } from "../Atoms/Button/LikeButton";
+import axios from "axios";
 
 type Props = {
   profile: Profile | null | undefined;
@@ -38,7 +40,7 @@ export const Article = ({ profile, article }: Props) => {
     article.family_point,
     article.innovation_point,
     article.market_point,
-    article.bure_point,
+    article.bure_point
   );
   const trackHpButtonClick = (companyName: string) => {
     ReactGA.event({
@@ -48,17 +50,38 @@ export const Article = ({ profile, article }: Props) => {
     });
   };
 
+  const handleLikeClick = () => {
+    const favorite = async () => {
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_API_URL}/favorites/${article.id}`,
+          { withCredentials: true }
+        );
+        setLiked(!isLiked);
+      } catch (error: any) {
+        alert(error.response.data.message);
+        console.log(error.response.data);
+      }
+    };
+    favorite();
+  };
+  const [isLiked, setLiked] = React.useState(article.is_liked);
   return (
     <Box p={30} pt={0}>
       <Box>
-        <Title
-          text={article.name}
-          mb={3}
-          padding={5}
-          pt={0}
-          fontWeight={"bold"}
-        />
-
+        <Flex
+          justifyContent={"space-between"}
+          flexDirection={{ base: "column", md: "row" }}
+        >
+          <Title
+            text={article.name}
+            mb={3}
+            padding={5}
+            pt={0}
+            fontWeight={"bold"}
+          />
+          <LikeButton isLiked={isLiked} onClick={handleLikeClick} />
+        </Flex>
         <Flex
           flexWrap="wrap"
           justifyContent={"space-between"}
